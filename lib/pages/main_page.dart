@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_cost_tracker_app/config.dart';
+import 'package:vehicle_cost_tracker_app/pages/garage_page.dart';
 import 'package:vehicle_cost_tracker_app/widgets/button_card.dart';
 
 class MainPage extends StatelessWidget {
@@ -16,7 +17,11 @@ class MainPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ButtonCard(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => GaragePage()));
+              },
               icon: Icons.garage,
               iconColor: Colors.blue,
               title: 'Garage',
