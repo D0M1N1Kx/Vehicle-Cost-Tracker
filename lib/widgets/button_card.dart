@@ -19,6 +19,11 @@ class ButtonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+        side: BorderSide(width: 1),
+      ),
+      elevation: 2.0,
       child: InkWell(
         onTap: onTap,
         child: ListTile(
