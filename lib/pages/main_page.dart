@@ -9,7 +9,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text(app_title)),
+      appBar: AppBar(centerTitle: true, title: Text(appTitle)),
       body: Padding(
         padding: EdgeInsets.only(left: 16, right: 16, top: 36),
         child: Column(

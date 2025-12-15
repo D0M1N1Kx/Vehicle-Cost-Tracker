@@ -1,1 +1,1 @@
-String app_title = 'VEHICLE COST TRACKER';
+const String appTitle = 'VEHICLE COST TRACKER';
