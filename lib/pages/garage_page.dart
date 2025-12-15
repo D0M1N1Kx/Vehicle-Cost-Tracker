@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_cost_tracker_app/pages/add_vehicle_page.dart';
 import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/widgets/empty_garage.dart';
 import 'package:vehicle_cost_tracker_app/widgets/vehicle_list.dart';
@@ -15,7 +16,11 @@ class GaragePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('GARAGE')),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (context) => AddVehiclePage()));
+        },
         backgroundColor: Colors.green,
         child: Icon(Icons.add, color: Colors.white),
       ),
