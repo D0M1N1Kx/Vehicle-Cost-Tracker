@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_cost_tracker_app/pages/main_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -24,7 +25,7 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: ThemeData(),
 
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+      home: MainPage(),
     );
   }
 }
