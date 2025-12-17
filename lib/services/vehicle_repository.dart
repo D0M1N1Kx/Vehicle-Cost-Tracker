@@ -32,8 +32,7 @@ class VehicleRepository {
   }
 
   bool isEmpty() => _vehicles.isEmpty;
-  Future<List<Vehicle>> getVehicles() async {
-    await load();
+  List<Vehicle> getVehicles() {
     return _vehicles;
   }
 }

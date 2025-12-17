@@ -56,7 +56,11 @@ class _GaragePageState extends State<GaragePage> {
               ? MainAxisAlignment.center
               : MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [isGarageEmpty ? EmptyGarage() : VehicleList()],
+          children: [
+            isGarageEmpty
+                ? EmptyGarage()
+                : VehicleList(cars: vehicleManager.getVehicles()),
+          ],
         ),
       ),
     );

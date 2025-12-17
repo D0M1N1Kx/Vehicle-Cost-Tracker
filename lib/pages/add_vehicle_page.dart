@@ -171,14 +171,15 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
                 backgroundColor: WidgetStateProperty.all(Colors.orange),
                 foregroundColor: WidgetStateProperty.all(Colors.black),
               ),
-              onPressed: () {
+              onPressed: () async {
                 final String finalBrand = brandController ?? '';
                 final String finalEngineController = engineController ?? '';
-
                 final String newId = DateTime.now().millisecondsSinceEpoch
                     .toString();
 
-                vehicleManager.addVehicle(
+                await vehicleManager.load();
+
+                await vehicleManager.addVehicle(
                   Vehicle(
                     id: int.parse(newId),
                     brand: finalBrand,
@@ -191,7 +192,7 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
                     engine: finalEngineController,
                   ),
                 );
-                Navigator.of(context).pop();
+                if (context.mounted) Navigator.of(context).pop();
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
