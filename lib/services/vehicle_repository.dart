@@ -1,25 +1,39 @@
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'dart:convert';
 
 class VehicleRepository {
-  final List<Vehicle> _vehicles = [];
+  List<Vehicle> _vehicles = [];
 
-  void addVehicle(Vehicle vehicle) {
-    _vehicles.add(vehicle);
+  Future<File> getFile() async {
+    final folder = await getApplicationDocumentsDirectory();
+    return File('${folder.path}/datas.json');
   }
 
-  void deleteVehicle(String id) {
-    _vehicles.removeWhere((item) => item.id == id);
+  Future<void> save() async {
+    final file = await getFile();
+    String text = jsonEncode(_vehicles.map((v) => v.toJson()).toList());
+    await file.writeAsString(text);
   }
 
-  bool isEmpty() {
-    if (_vehicles.isEmpty) {
-      return true;
-    } else {
-      return false;
+  Future<void> load() async {
+    final file = await getFile();
+    if (await file.exists()) {
+      String text = await file.readAsString();
+      List datas = jsonDecode(text);
+      _vehicles = datas.map((e) => Vehicle.fromJson(e)).toList();
     }
   }
 
-  List<Vehicle> getVehicles() {
+  Future<void> addVehicle(Vehicle vehicle) async {
+    _vehicles.add(vehicle);
+    await save();
+  }
+
+  bool isEmpty() => _vehicles.isEmpty;
+  Future<List<Vehicle>> getVehicles() async {
+    await load();
     return _vehicles;
   }
 }

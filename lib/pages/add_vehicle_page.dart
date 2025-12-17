@@ -18,8 +18,8 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
   final TextEditingController licenseController = TextEditingController();
   final TextEditingController chasissController = TextEditingController();
   final TextEditingController engineTypeController = TextEditingController();
-  String? brandController = null;
-  String? engineController = null;
+  String? brandController;
+  String? engineController;
 
   VehicleRepository vehicleManager = VehicleRepository();
 
@@ -168,8 +168,8 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
             SizedBox(height: 60),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                foregroundColor: MaterialStateProperty.all(Colors.black),
+                backgroundColor: WidgetStateProperty.all(Colors.orange),
+                foregroundColor: WidgetStateProperty.all(Colors.black),
               ),
               onPressed: () {
                 final String finalBrand = brandController ?? '';
@@ -191,12 +191,11 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
                     engine: finalEngineController,
                   ),
                 );
-
                 Navigator.of(context).pop();
               },
               child: Row(
-                children: [Icon(Icons.save), Text('Save')],
                 mainAxisSize: MainAxisSize.min,
+                children: [Icon(Icons.save), Text('Save')],
               ),
             ),
           ],
