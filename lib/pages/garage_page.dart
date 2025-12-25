@@ -59,7 +59,10 @@ class _GaragePageState extends State<GaragePage> {
           children: [
             isGarageEmpty
                 ? EmptyGarage()
-                : VehicleList(cars: vehicleManager.getVehicles()),
+                : VehicleList(
+                    cars: vehicleManager.getVehicles(),
+                    repository: vehicleManager,
+                  ),
           ],
         ),
       ),
