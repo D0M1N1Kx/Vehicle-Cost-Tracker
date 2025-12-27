@@ -199,7 +199,7 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
                       licensePlate: licenseController.text,
                       year: int.parse(yearController.text),
                       chassisNumber: chasissController.text,
-                      engine: finalEngineController,
+                      engine: engineTypeController.text,
                     ),
                   );
                   if (context.mounted) Navigator.of(context).pop();

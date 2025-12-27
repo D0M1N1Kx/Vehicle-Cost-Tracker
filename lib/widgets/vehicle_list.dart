@@ -27,8 +27,17 @@ class _VehicleListState extends State<VehicleList> {
               onTap: () {},
               child: ListTile(
                 leading: Icon(Icons.directions_car, color: Colors.blue),
-                title: Text('${car.brand} ${car.modell}'),
-                subtitle: Text(car.licensePlate),
+                title: Text('${car.brand} ${car.modell} ${car.engine}'),
+                subtitle: Row(
+                  children: [
+                    Icon(Icons.rectangle_outlined, size: 16),
+                    Text(" ${car.licensePlate}  "),
+                    Icon(Icons.speed, size: 16),
+                    Text(" ${car.km}  "),
+                    Icon(Icons.date_range_sharp, size: 16),
+                    Text(" ${car.year}  "),
+                  ],
+                ),
                 trailing: IconButton(
                   onPressed: () async {
                     final carID = car.id;
