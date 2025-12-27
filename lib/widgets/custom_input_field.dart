@@ -8,6 +8,7 @@ class CustomInputField extends StatelessWidget {
   final TextEditingController? controller;
   final void Function(String?)? onDropDownChanged;
   final List<String>? dropdownItems;
+  final bool readOnly;
 
   const CustomInputField({
     super.key,
@@ -17,6 +18,7 @@ class CustomInputField extends StatelessWidget {
     this.controller,
     this.onDropDownChanged,
     this.dropdownItems,
+    this.readOnly = false,
   });
 
   @override
@@ -36,7 +38,7 @@ class CustomInputField extends StatelessWidget {
           items: (dropdownItems ?? [])
               .map(
                 (String value) =>
-                    DropdownMenuItem<String>(child: Text(value), value: value),
+                    DropdownMenuItem<String>(value: value, child: Text(value)),
               )
               .toList(),
           onChanged: onDropDownChanged,
@@ -61,13 +63,14 @@ class CustomInputField extends StatelessWidget {
             hintText: label,
             isDense: true,
           ),
+          readOnly: readOnly,
         );
         break;
     }
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
       decoration: BoxDecoration(
-        color: colorScheme.surfaceVariant,
+        color: colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Column(
@@ -75,7 +78,7 @@ class CustomInputField extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(icon, color: colorScheme.onSurfaceVariant),
+              Icon(icon, color: colorScheme.onSurface),
               const SizedBox(width: 15),
               Expanded(child: inputWidget),
             ],

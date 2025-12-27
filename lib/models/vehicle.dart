@@ -1,3 +1,5 @@
+import 'package:vehicle_cost_tracker_app/models/refuel.dart';
+
 class Vehicle {
   final int id;
   final String brand;
@@ -8,6 +10,7 @@ class Vehicle {
   final String color;
   final String licensePlate;
   final int year;
+  final List<Refuel>? refuels;
 
   Vehicle({
     required this.id,
@@ -19,6 +22,7 @@ class Vehicle {
     required this.year,
     this.engine,
     this.chassisNumber,
+    this.refuels,
   });
 
   factory Vehicle.fromJson(Map<String, dynamic> json) {
