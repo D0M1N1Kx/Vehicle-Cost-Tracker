@@ -4,25 +4,43 @@ import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/widgets/custom_input_field.dart';
 
-class AddVehiclePage extends StatefulWidget {
-  const AddVehiclePage({super.key});
+class EditVehiclePage extends StatefulWidget {
+  final Vehicle car;
+  const EditVehiclePage({super.key, required this.car});
 
   @override
-  State<AddVehiclePage> createState() => _AddVehiclePageState();
+  State<EditVehiclePage> createState() => _EditVehiclePageState();
 }
 
-class _AddVehiclePageState extends State<AddVehiclePage> {
+class _EditVehiclePageState extends State<EditVehiclePage> {
   final TextEditingController modellController = TextEditingController();
   final TextEditingController yearController = TextEditingController();
   final TextEditingController odometerController = TextEditingController();
   final TextEditingController licenseController = TextEditingController();
-  final TextEditingController chasissController = TextEditingController();
   final TextEditingController engineTypeController = TextEditingController();
   final TextEditingController colorController = TextEditingController();
   String? brandController;
+  final TextEditingController chasissController = TextEditingController();
   String? engineController;
 
   VehicleRepository vehicleManager = VehicleRepository();
+  void setParameters() {
+    modellController.text = widget.car.modell;
+    yearController.text = widget.car.year.toString();
+    odometerController.text = widget.car.km.toString();
+    licenseController.text = widget.car.licensePlate;
+    engineTypeController.text = widget.car.engine.toString();
+    colorController.text = widget.car.color;
+    brandController = widget.car.brand;
+    engineController = widget.car.engine;
+    chasissController.text = widget.car.chassisNumber ?? '';
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setParameters();
+  }
 
   @override
   void dispose() {
@@ -30,9 +48,9 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
     yearController.dispose();
     odometerController.dispose();
     licenseController.dispose();
-    chasissController.dispose();
     engineTypeController.dispose();
     colorController.dispose();
+    chasissController.dispose();
     super.dispose();
   }
 
@@ -42,7 +60,7 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'ADD VEHICLE',
+          'EDIT VEHICLE',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -183,14 +201,12 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
                 ),
                 onPressed: () async {
                   final String finalBrand = brandController ?? '';
-                  final String newId = DateTime.now().millisecondsSinceEpoch
-                      .toString();
 
                   await vehicleManager.load();
 
-                  await vehicleManager.addVehicle(
+                  await vehicleManager.editVehicle(
                     Vehicle(
-                      id: int.parse(newId),
+                      id: widget.car.id,
                       brand: finalBrand,
                       modell: modellController.text,
                       km: int.parse(odometerController.text),

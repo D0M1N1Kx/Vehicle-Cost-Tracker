@@ -21,7 +21,6 @@ class _GaragePageState extends State<GaragePage> {
     _loadData();
   }
 
-  @override
   void _loadData() async {
     await vehicleManager.load();
     setState(() {

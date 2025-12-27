@@ -31,6 +31,14 @@ class VehicleRepository {
     await save();
   }
 
+  Future<void> editVehicle(Vehicle vehicle) async {
+    final int index = _vehicles.indexWhere((v) => v.id == vehicle.id);
+    if (index != -1) {
+      _vehicles[index] = vehicle;
+      await save();
+    }
+  }
+
   Future<void> deleteVehicle(int id) async {
     int indexToRemove = _vehicles.indexWhere((v) => v.id == id);
     if (indexToRemove != -1) {
