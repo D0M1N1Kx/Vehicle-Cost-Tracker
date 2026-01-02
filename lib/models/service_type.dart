@@ -1,0 +1,15 @@
+enum ServiceType {
+  Unique,
+  OilChange,
+  AirFilter,
+  PollenFilter,
+  FuelFilter,
+  SparkPlug,
+  BrakePadFront,
+  BrakePadRear,
+  BrakeFluid,
+  Coolant,
+  Clutch,
+  ControlBelt,
+  TechnicalExam,
+}
