@@ -6,6 +6,7 @@ import 'package:vehicle_cost_tracker_app/pages/service_log_page.dart';
 import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/widgets/button_card.dart';
+import 'package:vehicle_cost_tracker_app/widgets/vehicle_selector_dialog.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -47,57 +48,31 @@ class MainPage extends StatelessWidget {
                 final List<Vehicle> vehicles = repo.getVehicles();
 
                 if (vehicles.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'No vehicles found. Please add a vehicle first.',
-                      ),
-                    ),
+                  _showErrorSnackbar(
+                    context,
+                    'No vehicles found. Please add a vehicle first.',
                   );
                   return;
                 }
 
                 if (vehicles.length == 1) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          RefuelingLogPage(car: vehicles.first),
-                    ),
-                  );
+                  if (context.mounted) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            RefuelingLogPage(car: vehicles.first),
+                      ),
+                    );
+                  }
                   return;
                 }
 
-                final Vehicle? selected = await showDialog<Vehicle>(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text('Select Vehicle'),
-                      alignment: Alignment.center,
-                      content: SizedBox(
-                        width: double.maxFinite,
-                        height: 300,
-                        child: Scrollbar(
-                          child: ListView.builder(
-                            itemCount: vehicles.length,
-                            itemBuilder: (context, index) {
-                              final v = vehicles[index];
-                              return ListTile(
-                                title: Text('${v.brand} ${v.modell}'),
-                                onTap: () => Navigator.of(context).pop(v),
-                                leading: Icon(
-                                  Icons.directions_car,
-                                  color: Colors.blue,
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+                final Vehicle? selected = await showVehicleSelector(
+                  context,
+                  vehicles,
                 );
 
-                if (selected != null) {
+                if (selected != null && context.mounted) {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => RefuelingLogPage(car: selected),
@@ -118,57 +93,31 @@ class MainPage extends StatelessWidget {
                 List<Vehicle> vehicles = repo.getVehicles();
 
                 if (vehicles.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'No vehicles found. Please add a vehicle first.',
-                      ),
-                    ),
+                  _showErrorSnackbar(
+                    context,
+                    'No vehicles found. Please add a vehicle first.',
                   );
                   return;
                 }
 
                 if (vehicles.length == 1) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ServiceLogPage(vehicle: vehicles.first),
-                    ),
-                  );
+                  if (context.mounted) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ServiceLogPage(vehicle: vehicles.first),
+                      ),
+                    );
+                  }
                   return;
                 }
 
-                final Vehicle? selected = await showDialog<Vehicle>(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text('Select Vehicle'),
-                      alignment: Alignment.center,
-                      content: SizedBox(
-                        width: double.maxFinite,
-                        height: 300,
-                        child: Scrollbar(
-                          child: ListView.builder(
-                            itemCount: vehicles.length,
-                            itemBuilder: (context, index) {
-                              final v = vehicles[index];
-                              return ListTile(
-                                title: Text('${v.brand} ${v.modell}'),
-                                onTap: () => Navigator.of(context).pop(v),
-                                leading: Icon(
-                                  Icons.directions_car,
-                                  color: Colors.blue,
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+                final Vehicle? selected = await showVehicleSelector(
+                  context,
+                  vehicles,
                 );
 
-                if (selected != null) {
+                if (selected != null && context.mounted) {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => ServiceLogPage(vehicle: selected),
@@ -191,6 +140,16 @@ class MainPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _showErrorSnackbar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 2),
       ),
     );
   }
