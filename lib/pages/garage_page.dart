@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/pages/add_vehicle_page.dart';
 import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/widgets/empty_garage.dart';
@@ -21,7 +22,7 @@ class _GaragePageState extends State<GaragePage> {
     _loadData();
   }
 
-  void _loadData() async {
+  Future<void> _loadData() async {
     await vehicleManager.load();
     setState(() {
       isLoading = false;
@@ -40,10 +41,14 @@ class _GaragePageState extends State<GaragePage> {
       appBar: AppBar(centerTitle: true, title: Text('GARAGE')),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await Navigator.of(
-            context,
-          ).push(MaterialPageRoute(builder: (context) => AddVehiclePage()));
-          _loadData();
+          final Vehicle? newVehicle = await Navigator.of(context).push<Vehicle>(
+            MaterialPageRoute(builder: (context) => AddVehiclePage()),
+          );
+
+          if (newVehicle != null) {
+            await vehicleManager.addVehicle(newVehicle);
+            await _loadData();
+          }
         },
         backgroundColor: Colors.green,
         child: Icon(Icons.add, color: Colors.white),
@@ -60,7 +65,13 @@ class _GaragePageState extends State<GaragePage> {
                 ? EmptyGarage()
                 : VehicleList(
                     cars: vehicleManager.getVehicles(),
-                    repository: vehicleManager,
+                    onDelete: (int id) async {
+                      await vehicleManager.deleteVehicle(id);
+                      await _loadData();
+                    },
+                    onRefresh: () async {
+                      await _loadData();
+                    },
                   ),
           ],
         ),
