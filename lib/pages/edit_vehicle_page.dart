@@ -19,27 +19,24 @@ class _EditVehiclePageState extends State<EditVehiclePage> {
   final TextEditingController licenseController = TextEditingController();
   final TextEditingController engineTypeController = TextEditingController();
   final TextEditingController colorController = TextEditingController();
-  String? brandController;
   final TextEditingController chasissController = TextEditingController();
-  String? engineController;
-
-  VehicleRepository vehicleManager = VehicleRepository();
-  void setParameters() {
-    modellController.text = widget.car.modell;
-    yearController.text = widget.car.year.toString();
-    odometerController.text = widget.car.km.toString();
-    licenseController.text = widget.car.licensePlate;
-    engineTypeController.text = widget.car.engine.toString();
-    colorController.text = widget.car.color;
-    brandController = widget.car.brand;
-    engineController = widget.car.engine;
-    chasissController.text = widget.car.chassisNumber ?? '';
-  }
+  String? brandController;
 
   @override
   void initState() {
     super.initState();
-    setParameters();
+    _setParameters();
+  }
+
+  void _setParameters() {
+    modellController.text = widget.car.modell;
+    yearController.text = widget.car.year.toString();
+    odometerController.text = widget.car.km.toString();
+    licenseController.text = widget.car.licensePlate;
+    engineTypeController.text = widget.car.engine ?? '';
+    colorController.text = widget.car.color;
+    brandController = widget.car.brand;
+    chasissController.text = widget.car.chassisNumber ?? '';
   }
 
   @override
@@ -52,6 +49,96 @@ class _EditVehiclePageState extends State<EditVehiclePage> {
     colorController.dispose();
     chasissController.dispose();
     super.dispose();
+  }
+
+  bool _validateInputs() {
+    final brand = brandController;
+    final modell = modellController.text.trim();
+    final year = yearController.text.trim();
+    final odometer = odometerController.text.trim();
+    final license = licenseController.text.trim();
+    final engine = engineTypeController.text.trim();
+    final color = colorController.text.trim();
+
+    if (brand == null || brand.isEmpty) {
+      _showErrorSnackbar('Please select a brand');
+      return false;
+    }
+    if (modell.isEmpty) {
+      _showErrorSnackbar('Please enter a model name');
+      return false;
+    }
+    if (year.isEmpty) {
+      _showErrorSnackbar('Please enter a year');
+      return false;
+    }
+    if (odometer.isEmpty) {
+      _showErrorSnackbar('Please enter odometer reading');
+      return false;
+    }
+    if (license.isEmpty) {
+      _showErrorSnackbar('Please enter license plate');
+      return false;
+    }
+    if (engine.isEmpty) {
+      _showErrorSnackbar('Please enter engine type');
+      return false;
+    }
+    if (color.isEmpty) {
+      _showErrorSnackbar('Please enter color');
+      return false;
+    }
+
+    final int? parsedYear = int.tryParse(year);
+    final int? parsedOdometer = int.tryParse(odometer);
+
+    if (parsedYear == null) {
+      _showErrorSnackbar('Year must be a valid number');
+      return false;
+    }
+    if (parsedOdometer == null) {
+      _showErrorSnackbar('Odometer must be a valid number');
+      return false;
+    }
+
+    return true;
+  }
+
+  void _showErrorSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  void _saveVehicle() {
+    if (!_validateInputs()) {
+      return;
+    }
+
+    final int year = int.parse(yearController.text.trim());
+    final int odometer = int.parse(odometerController.text.trim());
+
+    final vehicle = Vehicle(
+      id: widget.car.id,
+      brand: brandController!,
+      modell: modellController.text.trim(),
+      km: odometer,
+      color: colorController.text.trim(),
+      licensePlate: licenseController.text.trim(),
+      year: year,
+      chassisNumber: chasissController.text.trim().isEmpty
+          ? null
+          : chasissController.text.trim(),
+      engine: engineTypeController.text.trim(),
+      refuels: widget.car.refuels,
+      services: widget.car.services,
+    );
+
+    Navigator.of(context).pop(vehicle);
   }
 
   @override
@@ -169,18 +256,6 @@ class _EditVehiclePageState extends State<EditVehiclePage> {
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Engine controller',
-                icon: Icons.construction,
-                type: FieldType.dropdown,
-                dropdownItems: ['Belt', 'Chain', 'None'],
-                onDropDownChanged: (String? newValue) {
-                  setState(() {
-                    engineController = newValue;
-                  });
-                },
-              ),
-              SizedBox(height: 20),
-              CustomInputField(
                 label: 'License plate',
                 icon: Icons.rectangle,
                 type: FieldType.text,
@@ -199,26 +274,7 @@ class _EditVehiclePageState extends State<EditVehiclePage> {
                   backgroundColor: WidgetStateProperty.all(Colors.orange),
                   foregroundColor: WidgetStateProperty.all(Colors.black),
                 ),
-                onPressed: () async {
-                  final String finalBrand = brandController ?? '';
-
-                  await vehicleManager.load();
-
-                  await vehicleManager.editVehicle(
-                    Vehicle(
-                      id: widget.car.id,
-                      brand: finalBrand,
-                      modell: modellController.text,
-                      km: int.parse(odometerController.text),
-                      color: colorController.text,
-                      licensePlate: licenseController.text,
-                      year: int.parse(yearController.text),
-                      chassisNumber: chasissController.text,
-                      engine: engineTypeController.text,
-                    ),
-                  );
-                  if (context.mounted) Navigator.of(context).pop();
-                },
+                onPressed: _saveVehicle,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [Icon(Icons.save), Text('Save')],
