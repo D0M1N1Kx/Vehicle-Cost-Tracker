@@ -57,12 +57,16 @@ class MainPage extends StatelessWidget {
 
                 if (vehicles.length == 1) {
                   if (context.mounted) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            RefuelingLogPage(car: vehicles.first),
-                      ),
-                    );
+                    final Vehicle? updatedVehicle = await Navigator.of(context)
+                        .push<Vehicle>(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                RefuelingLogPage(car: vehicles.first),
+                          ),
+                        );
+                    if (updatedVehicle != null) {
+                      await repo.editVehicle(updatedVehicle);
+                    }
                   }
                   return;
                 }
@@ -73,11 +77,15 @@ class MainPage extends StatelessWidget {
                 );
 
                 if (selected != null && context.mounted) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => RefuelingLogPage(car: selected),
-                    ),
-                  );
+                  final Vehicle? updatedVehicle = await Navigator.of(context)
+                      .push<Vehicle>(
+                        MaterialPageRoute(
+                          builder: (context) => RefuelingLogPage(car: selected),
+                        ),
+                      );
+                  if (updatedVehicle != null) {
+                    await repo.editVehicle(updatedVehicle);
+                  }
                 }
               },
               icon: Icons.local_gas_station_sharp,
