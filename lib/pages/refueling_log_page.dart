@@ -57,6 +57,7 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
     super.dispose();
   }
 
+  // ERROR HANDLING
   bool _validateInputs() {
     final qText = quantityController.text.replaceAll(',', '.').trim();
     final pText = priceController.text.replaceAll(',', '.').trim();
@@ -122,7 +123,25 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
       date: DateTime.now(),
     );
 
-    Navigator.of(context).pop(refuel);
+    // Create new list with the new refuel
+    final updatedRefuels = [...?widget.car.refuels, refuel];
+
+    // Create new vehicle with updated refuels list
+    final updatedVehicle = Vehicle(
+      id: widget.car.id,
+      brand: widget.car.brand,
+      modell: widget.car.modell,
+      km: widget.car.km,
+      color: widget.car.color,
+      licensePlate: widget.car.licensePlate,
+      year: widget.car.year,
+      engine: widget.car.engine,
+      chassisNumber: widget.car.chassisNumber,
+      refuels: updatedRefuels,
+      services: widget.car.services,
+    );
+
+    Navigator.of(context).pop(updatedVehicle);
   }
 
   @override
@@ -186,10 +205,13 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                         backgroundColor: WidgetStateProperty.all(Colors.green),
                         foregroundColor: WidgetStateProperty.all(Colors.black),
                       ),
-
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: [Icon(Icons.save), Text(' Save refuel')],
+                        children: [
+                          Icon(Icons.save),
+                          SizedBox(width: 8),
+                          Text('Save refuel'),
+                        ],
                       ),
                     ),
                   ],

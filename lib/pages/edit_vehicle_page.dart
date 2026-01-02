@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_cost_tracker_app/models/field_type.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
-import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/widgets/custom_input_field.dart';
 
 class EditVehiclePage extends StatefulWidget {
@@ -51,6 +50,7 @@ class _EditVehiclePageState extends State<EditVehiclePage> {
     super.dispose();
   }
 
+  // ERROR HANDLING HELPER
   bool _validateInputs() {
     final brand = brandController;
     final modell = modellController.text.trim();
@@ -277,7 +277,11 @@ class _EditVehiclePageState extends State<EditVehiclePage> {
                 onPressed: _saveVehicle,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [Icon(Icons.save), Text('Save')],
+                  children: [
+                    Icon(Icons.save),
+                    SizedBox(width: 8),
+                    Text('Save'),
+                  ],
                 ),
               ),
             ],
