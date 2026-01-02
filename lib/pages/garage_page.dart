@@ -72,6 +72,10 @@ class _GaragePageState extends State<GaragePage> {
                     onRefresh: () async {
                       await _loadData();
                     },
+                    onEdit: (Vehicle edited) async {
+                      await vehicleManager.editVehicle(edited);
+                      await _loadData();
+                    },
                   ),
           ],
         ),

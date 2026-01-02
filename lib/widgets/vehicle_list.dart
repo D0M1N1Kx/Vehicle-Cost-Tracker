@@ -6,12 +6,14 @@ class VehicleList extends StatelessWidget {
   final List<Vehicle> cars;
   final Function(int) onDelete;
   final Function() onRefresh;
+  final Function(Vehicle) onEdit;
 
   const VehicleList({
     super.key,
     required this.cars,
     required this.onDelete,
     required this.onRefresh,
+    required this.onEdit,
   });
 
   @override
@@ -34,7 +36,7 @@ class VehicleList extends StatelessWidget {
                 );
 
                 if (editedVehicle != null) {
-                  onRefresh();
+                  onEdit(editedVehicle);
                 }
               },
               child: ListTile(
