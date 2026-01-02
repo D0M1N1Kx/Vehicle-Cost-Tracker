@@ -57,6 +57,74 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
     super.dispose();
   }
 
+  bool _validateInputs() {
+    final qText = quantityController.text.replaceAll(',', '.').trim();
+    final pText = priceController.text.replaceAll(',', '.').trim();
+
+    if (qText.isEmpty) {
+      _showErrorSnackbar('Please enter fuel quantity');
+      return false;
+    }
+    if (pText.isEmpty) {
+      _showErrorSnackbar('Please enter fuel price');
+      return false;
+    }
+
+    final double? q = double.tryParse(qText);
+    final double? p = double.tryParse(pText);
+
+    if (q == null) {
+      _showErrorSnackbar('Quantity must be a valid number');
+      return false;
+    }
+    if (p == null) {
+      _showErrorSnackbar('Price must be a valid number');
+      return false;
+    }
+    if (q <= 0) {
+      _showErrorSnackbar('Quantity must be greater than 0');
+      return false;
+    }
+    if (p <= 0) {
+      _showErrorSnackbar('Price must be greater than 0');
+      return false;
+    }
+
+    return true;
+  }
+
+  void _showErrorSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  void _saveRefuel() {
+    if (!_validateInputs()) {
+      return;
+    }
+
+    final double quantity = double.parse(
+      quantityController.text.replaceAll(',', '.').trim(),
+    );
+    final double price = double.parse(
+      priceController.text.replaceAll(',', '.').trim(),
+    );
+    final double cost = quantity * price;
+
+    final refuel = Refuel(
+      fuelQuantity: quantity.toInt(),
+      fuelCost: cost.toInt(),
+      date: DateTime.now(),
+    );
+
+    Navigator.of(context).pop(refuel);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,35 +181,7 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                     ),
                     SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () {
-                        final String qText = quantityController.text
-                            .replaceAll(',', '.')
-                            .trim();
-                        final String pText = priceController.text
-                            .replaceAll(',', '.')
-                            .trim();
-                        final double? q = double.tryParse(qText);
-                        final double? p = double.tryParse(pText);
-
-                        if (q == null || p == null) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'Please enter valid quantity and price.',
-                              ),
-                            ),
-                          );
-                          return;
-                        }
-                        widget.car.refuels?.add(
-                          Refuel(
-                            fuelQuantity: int.parse(quantityController.text),
-                            fuelCost: int.parse(costController.text),
-                            date: DateTime.now(),
-                          ),
-                        );
-                        Navigator.of(context).pop(true);
-                      },
+                      onPressed: _saveRefuel,
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(Colors.green),
                         foregroundColor: WidgetStateProperty.all(Colors.black),
