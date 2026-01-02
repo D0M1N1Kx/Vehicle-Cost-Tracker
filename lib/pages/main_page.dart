@@ -73,7 +73,7 @@ class MainPage extends StatelessWidget {
                     return AlertDialog(
                       title: Text('Select Vehicle'),
                       alignment: Alignment.center,
-                      content: Container(
+                      content: SizedBox(
                         width: double.maxFinite,
                         height: 300,
                         child: Scrollbar(
@@ -144,7 +144,7 @@ class MainPage extends StatelessWidget {
                     return AlertDialog(
                       title: Text('Select Vehicle'),
                       alignment: Alignment.center,
-                      content: Container(
+                      content: SizedBox(
                         width: double.maxFinite,
                         height: 300,
                         child: Scrollbar(

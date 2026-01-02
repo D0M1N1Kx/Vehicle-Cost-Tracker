@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_cost_tracker_app/models/field_type.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
-import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/widgets/custom_input_field.dart';
 
 class AddVehiclePage extends StatefulWidget {
@@ -20,9 +19,6 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
   final TextEditingController engineTypeController = TextEditingController();
   final TextEditingController colorController = TextEditingController();
   String? brandController;
-  String? engineController;
-
-  VehicleRepository vehicleManager = VehicleRepository();
 
   @override
   void dispose() {
@@ -34,6 +30,95 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
     engineTypeController.dispose();
     colorController.dispose();
     super.dispose();
+  }
+
+  bool _validateInputs() {
+    final brand = brandController;
+    final modell = modellController.text.trim();
+    final year = yearController.text.trim();
+    final odometer = odometerController.text.trim();
+    final license = licenseController.text.trim();
+    final engine = engineTypeController.text.trim();
+    final color = colorController.text.trim();
+
+    // Check if any required field is empty
+    if (brand == null || brand.isEmpty) {
+      _showErrorSnackbar('Please select a brand');
+      return false;
+    }
+    if (modell.isEmpty) {
+      _showErrorSnackbar('Please enter a model name');
+      return false;
+    }
+    if (year.isEmpty) {
+      _showErrorSnackbar('Please enter a year');
+      return false;
+    }
+    if (odometer.isEmpty) {
+      _showErrorSnackbar('Please enter odometer reading');
+      return false;
+    }
+    if (license.isEmpty) {
+      _showErrorSnackbar('Please enter license plate');
+      return false;
+    }
+    if (engine.isEmpty) {
+      _showErrorSnackbar('Please enter engine type');
+      return false;
+    }
+    if (color.isEmpty) {
+      _showErrorSnackbar('Please enter color');
+      return false;
+    }
+
+    final int? parsedYear = int.tryParse(year);
+    final int? parsedOdometer = int.tryParse(odometer);
+
+    if (parsedYear == null) {
+      _showErrorSnackbar('Year must be a valid number');
+      return false;
+    }
+    if (parsedOdometer == null) {
+      _showErrorSnackbar('Odometer must be a valid number');
+      return false;
+    }
+
+    return true;
+  }
+
+  void _showErrorSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  void _saveVehicle() {
+    if (!_validateInputs()) {
+      return;
+    }
+
+    final int year = int.parse(yearController.text.trim());
+    final int odometer = int.parse(odometerController.text.trim());
+
+    final vehicle = Vehicle(
+      id: DateTime.now().millisecondsSinceEpoch,
+      brand: brandController!,
+      modell: modellController.text.trim(),
+      km: odometer,
+      color: colorController.text.trim(),
+      licensePlate: licenseController.text.trim(),
+      year: year,
+      chassisNumber: chasissController.text.trim().isEmpty
+          ? null
+          : chasissController.text.trim(),
+      engine: engineTypeController.text.trim(),
+    );
+
+    Navigator.of(context).pop(vehicle);
   }
 
   @override
@@ -151,18 +236,6 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Engine controller',
-                icon: Icons.construction,
-                type: FieldType.dropdown,
-                dropdownItems: ['Belt', 'Chain', 'None'],
-                onDropDownChanged: (String? newValue) {
-                  setState(() {
-                    engineController = newValue;
-                  });
-                },
-              ),
-              SizedBox(height: 20),
-              CustomInputField(
                 label: 'License plate',
                 icon: Icons.rectangle,
                 type: FieldType.text,
@@ -181,28 +254,7 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
                   backgroundColor: WidgetStateProperty.all(Colors.orange),
                   foregroundColor: WidgetStateProperty.all(Colors.black),
                 ),
-                onPressed: () async {
-                  final String finalBrand = brandController ?? '';
-                  final String newId = DateTime.now().millisecondsSinceEpoch
-                      .toString();
-
-                  await vehicleManager.load();
-
-                  await vehicleManager.addVehicle(
-                    Vehicle(
-                      id: int.parse(newId),
-                      brand: finalBrand,
-                      modell: modellController.text,
-                      km: int.parse(odometerController.text),
-                      color: colorController.text,
-                      licensePlate: licenseController.text,
-                      year: int.parse(yearController.text),
-                      chassisNumber: chasissController.text,
-                      engine: engineTypeController.text,
-                    ),
-                  );
-                  if (context.mounted) Navigator.of(context).pop();
-                },
+                onPressed: _saveVehicle,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [Icon(Icons.save), Text('Save')],
