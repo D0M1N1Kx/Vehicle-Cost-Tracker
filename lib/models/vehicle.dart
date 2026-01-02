@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:vehicle_cost_tracker_app/models/refuel.dart';
+import 'package:vehicle_cost_tracker_app/models/service.dart';
 
 class Vehicle {
   final int id;
@@ -41,6 +40,16 @@ class Vehicle {
       year: json['year'],
       engine: json['engine'],
       chassisNumber: json['chassisNumber'],
+      refuels: json['refuels'] != null
+          ? (json['refuels'] as List)
+                .map((i) => Refuel.fromJson(i as Map<String, dynamic>))
+                .toList()
+          : null,
+      services: json['services'] != null
+          ? (json['services'] as List)
+                .map((i) => Service.fromJson(i as Map<String, dynamic>))
+                .toList()
+          : null,
     );
   }
 
@@ -54,5 +63,7 @@ class Vehicle {
     'year': year,
     'engine': engine,
     'chassisNumber': chassisNumber,
+    'refuels': refuels?.map((r) => r.toJson()).toList(),
+    'services': services?.map((s) => s.toJson()).toList(),
   };
 }
