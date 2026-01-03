@@ -32,8 +32,7 @@ class GarageViewModel extends ChangeNotifier {
   Future<void> addVehicle(Vehicle vehicle) async {
     try {
       await _repository.addVehicle(vehicle);
-      _vehicles.add(vehicle);
-      notifyListeners();
+      await loadVehicles();
     } catch (e) {
       print('Error adding vehicle: $e');
     }
@@ -42,12 +41,7 @@ class GarageViewModel extends ChangeNotifier {
   Future<void> editVehicle(Vehicle vehicle) async {
     try {
       await _repository.editVehicle(vehicle);
-      // Update in local list
-      final index = _vehicles.indexWhere((v) => v.id == vehicle.id);
-      if (index != -1) {
-        _vehicles[index] = vehicle;
-      }
-      notifyListeners();
+      await loadVehicles();
     } catch (e) {
       print('Error editing vehicle: $e');
     }

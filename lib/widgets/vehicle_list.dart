@@ -5,14 +5,12 @@ import 'package:vehicle_cost_tracker_app/pages/edit_vehicle_page.dart';
 class VehicleList extends StatelessWidget {
   final List<Vehicle> cars;
   final Function(int) onDelete;
-  final Function() onRefresh;
   final Function(Vehicle) onEdit;
 
   const VehicleList({
     super.key,
     required this.cars,
     required this.onDelete,
-    required this.onRefresh,
     required this.onEdit,
   });
 
