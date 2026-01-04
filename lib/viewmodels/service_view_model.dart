@@ -27,4 +27,36 @@ class ServiceViewModel extends ChangeNotifier {
     );
     return (serviceCosts + refuelCosts).round();
   }
+
+  List<Map<String, dynamic>> get combinedServiceAndRefuelList {
+    final List<Map<String, dynamic>> combined = [];
+
+    // Services hozzáadása
+    for (var service in services) {
+      combined.add({
+        'type': 'service',
+        'icon': Icons.build_circle_outlined,
+        'color': Colors.orange,
+        'title': service.type.toString().split('.').last,
+        'date': service.date,
+        'cost': service.cost,
+      });
+    }
+
+    for (var refuel in refuels) {
+      combined.add({
+        'type': 'refuel',
+        'icon': Icons.local_gas_station,
+        'color': Colors.green,
+        'title':
+            '${refuel.fuelQuantity}L x ${(refuel.fuelCost / refuel.fuelQuantity).round().toStringAsFixed(2)}\$',
+        'date': refuel.date,
+        'cost': refuel.fuelCost,
+      });
+    }
+
+    combined.sort((a, b) => b['date'].compareTo(a['date']));
+
+    return combined;
+  }
 }

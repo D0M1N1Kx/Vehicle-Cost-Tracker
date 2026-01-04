@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/viewmodels/service_view_model.dart';
+import 'package:vehicle_cost_tracker_app/widgets/service_list_tile.dart';
+import 'package:intl/intl.dart';
+
+import '../models/refuel.dart';
+import '../models/service.dart';
 
 class ServiceLogPage extends StatefulWidget {
   final Vehicle vehicle;
@@ -106,7 +111,38 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 20),
+                Expanded(
+                  child: Consumer<ServiceViewModel>(
+                    builder: (context, viewModel, _) {
+                      final combinedList =
+                          viewModel.combinedServiceAndRefuelList;
+
+                      if (combinedList.isEmpty) {
+                        return Center(
+                          child: Text(
+                            'No services or refuels recorded',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        );
+                      }
+
+                      return ListView.builder(
+                        itemCount: combinedList.length,
+                        itemBuilder: (context, index) {
+                          final item = combinedList[index];
+                          return ServiceListTile(
+                            icon: item['icon'],
+                            color: item['color'],
+                            title: item['title'],
+                            date: DateFormat('yyyy-MM-dd').format(item['date']),
+                            price: item['cost'],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),
