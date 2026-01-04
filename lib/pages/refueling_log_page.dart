@@ -163,6 +163,10 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
     );
   }
 
+  void _onBackPressed() {
+    Navigator.of(context).pop(_currentVehicle);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -171,227 +175,236 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
         // Tárold el a ViewModel referenciáját
         _viewModel = context.watch<RefuelingViewModel>();
 
-        return Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: Text(
-              'Refueling - ${widget.car.brand} ${widget.car.modell}',
-              style: TextStyle(fontWeight: FontWeight.bold),
+        return WillPopScope(
+          onWillPop: () async {
+            Navigator.of(context).pop(_currentVehicle);
+            return false;
+          },
+          child: Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              title: Text(
+                'Refueling - ${widget.car.brand} ${widget.car.modell}',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                // MONTH SELECTOR
-                MonthSelector(),
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  // MONTH SELECTOR
+                  MonthSelector(),
 
-                // STATISTICS CARDS
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Consumer<RefuelingViewModel>(
-                    builder: (context, viewModel, _) {
-                      return Column(
-                        children: [
-                          // Stats Row - 2x2 Grid
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Expanded(
-                                    child: _StatCard(
-                                      label: 'Monthly Cost',
-                                      value: viewModel.monthlyTotalCost
-                                          .toString(),
-                                      icon: Icons.calendar_month,
-                                      color: Colors.blue,
-                                    ),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Expanded(
-                                    child: _StatCard(
-                                      label: 'Total Cost',
-                                      value: viewModel.totalCostAllTime
-                                          .toString(),
-                                      icon: Icons.wallet,
-                                      color: Colors.green,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 8),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Expanded(
-                                    child: _StatCard(
-                                      label: 'Avg Per Fill',
-                                      value: viewModel.monthlyAverage
-                                          .toString(),
-                                      icon: Icons.trending_up,
-                                      color: Colors.orange,
-                                    ),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Expanded(
-                                    child: _StatCard(
-                                      label: 'Monthly Liters',
-                                      value: viewModel.monthlyTotalLiters
-                                          .toString(),
-                                      icon: Icons.water_drop_outlined,
-                                      color: Colors.cyan,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: 20),
-
-                          // ADD NEW REFUEL CARD
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                              side: BorderSide(width: 1, color: Colors.green),
-                            ),
-                            elevation: 2.0,
-                            child: Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'New refuel log',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20),
-                                  CustomInputField(
-                                    label: 'Fuel quantity (liter)',
-                                    icon: Icons.water_drop_outlined,
-                                    type: FieldType.number,
-                                    controller: quantityController,
-                                  ),
-                                  SizedBox(height: 20),
-                                  CustomInputField(
-                                    label: 'Fuel price (currency / liter)',
-                                    icon: Icons.price_change,
-                                    type: FieldType.number,
-                                    controller: priceController,
-                                  ),
-                                  SizedBox(height: 20),
-                                  CustomInputField(
-                                    label: 'Fuel cost',
-                                    icon: Icons.attach_money,
-                                    type: FieldType.text,
-                                    controller: costController,
-                                    readOnly: true,
-                                  ),
-                                  SizedBox(height: 20),
-                                  ElevatedButton(
-                                    onPressed: _saveRefuel,
-                                    style: ButtonStyle(
-                                      backgroundColor: WidgetStateProperty.all(
-                                        Colors.green,
-                                      ),
-                                      foregroundColor: WidgetStateProperty.all(
-                                        Colors.black,
+                  // STATISTICS CARDS
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Consumer<RefuelingViewModel>(
+                      builder: (context, viewModel, _) {
+                        return Column(
+                          children: [
+                            // Stats Row - 2x2 Grid
+                            Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Expanded(
+                                      child: _StatCard(
+                                        label: 'Monthly Cost',
+                                        value: viewModel.monthlyTotalCost
+                                            .toString(),
+                                        icon: Icons.calendar_month,
+                                        color: Colors.blue,
                                       ),
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(Icons.save),
-                                        SizedBox(width: 8),
-                                        Text('Save refuel'),
-                                      ],
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: _StatCard(
+                                        label: 'Total Cost',
+                                        value: viewModel.totalCostAllTime
+                                            .toString(),
+                                        icon: Icons.wallet,
+                                        color: Colors.green,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
+                                  ],
+                                ),
+                                SizedBox(height: 8),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Expanded(
+                                      child: _StatCard(
+                                        label: 'Avg Per Fill',
+                                        value: viewModel.monthlyAverage
+                                            .toString(),
+                                        icon: Icons.trending_up,
+                                        color: Colors.orange,
+                                      ),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: _StatCard(
+                                        label: 'Monthly Liters',
+                                        value: viewModel.monthlyTotalLiters
+                                            .toString(),
+                                        icon: Icons.water_drop_outlined,
+                                        color: Colors.cyan,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ),
 
-                          SizedBox(height: 20),
+                            SizedBox(height: 20),
 
-                          // REFUELS LIST
-                          Consumer<RefuelingViewModel>(
-                            builder: (context, viewModel, _) {
-                              final refuels = viewModel.refuelsForSelectedMonth;
-
-                              if (refuels.isEmpty) {
-                                return Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Text(
-                                    'No refuels in this month',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                );
-                              }
-
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 16.0),
-                                    child: Text(
-                                      'Refuels this month',
+                            // ADD NEW REFUEL CARD
+                            Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                side: BorderSide(width: 1, color: Colors.green),
+                              ),
+                              elevation: 2.0,
+                              child: Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'New refuel log',
                                       style: TextStyle(
-                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
+                                        fontSize: 18,
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(height: 12),
-                                  ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    itemCount: refuels.length,
-                                    itemBuilder: (context, index) {
-                                      final refuel = refuels[index];
-                                      return Card(
-                                        margin: EdgeInsets.symmetric(
-                                          horizontal: 16,
-                                          vertical: 8,
+                                    SizedBox(height: 20),
+                                    CustomInputField(
+                                      label: 'Fuel quantity (liter)',
+                                      icon: Icons.water_drop_outlined,
+                                      type: FieldType.number,
+                                      controller: quantityController,
+                                    ),
+                                    SizedBox(height: 20),
+                                    CustomInputField(
+                                      label: 'Fuel price (currency / liter)',
+                                      icon: Icons.price_change,
+                                      type: FieldType.number,
+                                      controller: priceController,
+                                    ),
+                                    SizedBox(height: 20),
+                                    CustomInputField(
+                                      label: 'Fuel cost',
+                                      icon: Icons.attach_money,
+                                      type: FieldType.text,
+                                      controller: costController,
+                                      readOnly: true,
+                                    ),
+                                    SizedBox(height: 20),
+                                    ElevatedButton(
+                                      onPressed: _saveRefuel,
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            WidgetStateProperty.all(
+                                              Colors.green,
+                                            ),
+                                        foregroundColor:
+                                            WidgetStateProperty.all(
+                                              Colors.black,
+                                            ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.save),
+                                          SizedBox(width: 8),
+                                          Text('Save refuel'),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                            SizedBox(height: 20),
+
+                            // REFUELS LIST
+                            Consumer<RefuelingViewModel>(
+                              builder: (context, viewModel, _) {
+                                final refuels =
+                                    viewModel.refuelsForSelectedMonth;
+
+                                if (refuels.isEmpty) {
+                                  return Padding(
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Text(
+                                      'No refuels in this month',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  );
+                                }
+
+                                return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 16.0),
+                                      child: Text(
+                                        'Refuels this month',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        child: ListTile(
-                                          leading: Icon(
-                                            Icons.local_gas_station,
-                                            color: Colors.green,
+                                      ),
+                                    ),
+                                    SizedBox(height: 12),
+                                    ListView.builder(
+                                      shrinkWrap: true,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      itemCount: refuels.length,
+                                      itemBuilder: (context, index) {
+                                        final refuel = refuels[index];
+                                        return Card(
+                                          margin: EdgeInsets.symmetric(
+                                            horizontal: 16,
+                                            vertical: 8,
                                           ),
-                                          title: Text(
-                                            '${refuel.fuelQuantity}L x ${(refuel.fuelCost / refuel.fuelQuantity).toStringAsFixed(2)} = ${refuel.fuelCost}',
-                                          ),
-                                          subtitle: Text(
-                                            refuel.date.toString().split(
-                                              ' ',
-                                            )[0],
-                                            style: TextStyle(
-                                              color: Colors.grey,
+                                          child: ListTile(
+                                            leading: Icon(
+                                              Icons.local_gas_station,
+                                              color: Colors.green,
+                                            ),
+                                            title: Text(
+                                              '${refuel.fuelQuantity}L x ${(refuel.fuelCost / refuel.fuelQuantity).toStringAsFixed(2)} = ${refuel.fuelCost}',
+                                            ),
+                                            subtitle: Text(
+                                              refuel.date.toString().split(
+                                                ' ',
+                                              )[0],
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(height: 20),
-                                ],
-                              );
-                            },
-                          ),
-                        ],
-                      );
-                    },
+                                        );
+                                      },
+                                    ),
+                                    SizedBox(height: 20),
+                                  ],
+                                );
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );
