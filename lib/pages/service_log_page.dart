@@ -21,17 +21,14 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
   int get totalAllCosts {
     int total = 0;
 
-    // Szervizek összeadása (biztonságos null-kezeléssel)
     if (_car.services != null) {
       for (var service in _car.services!) {
         total += service.cost;
       }
     }
 
-    // Tankolások összeadása (ha a Refuel osztályban 'cost' a mező neve)
     if (_car.refuels != null) {
       for (var refuel in _car.refuels!) {
-        // Itt figyeltem a képeden: ha a Refuel-nél 'fuelCost' vagy 'cost' a neve, azt használd!
         total += refuel.fuelCost;
       }
     }
