@@ -367,7 +367,7 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                             color: Colors.green,
                                           ),
                                           title: Text(
-                                            '${refuel.fuelQuantity}L @ ${(refuel.fuelCost / refuel.fuelQuantity).toStringAsFixed(2)} = ${refuel.fuelCost}',
+                                            '${refuel.fuelQuantity}L x ${(refuel.fuelCost / refuel.fuelQuantity).toStringAsFixed(2)} = ${refuel.fuelCost}',
                                           ),
                                           subtitle: Text(
                                             refuel.date.toString().split(
