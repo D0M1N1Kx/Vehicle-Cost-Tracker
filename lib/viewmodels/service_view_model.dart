@@ -4,13 +4,14 @@ import 'package:vehicle_cost_tracker_app/models/service.dart';
 import 'package:vehicle_cost_tracker_app/models/refuel.dart';
 
 class ServiceViewModel extends ChangeNotifier {
-  final Vehicle _vehicle;
+  Vehicle _vehicle;
 
   ServiceViewModel(this._vehicle);
 
   // GETTERS
   List<Service> get services => _vehicle.services ?? [];
   List<Refuel> get refuels => _vehicle.refuels ?? [];
+  Vehicle get vehicle => _vehicle;
 
   int get allServicesAndRefuelsCount {
     return (_vehicle.services?.length ?? 0) + (_vehicle.refuels?.length ?? 0);
@@ -58,5 +59,25 @@ class ServiceViewModel extends ChangeNotifier {
     combined.sort((a, b) => b['date'].compareTo(a['date']));
 
     return combined;
+  }
+
+  void addService(Service service) {
+    final updatedServices = [...?_vehicle.services, service];
+
+    _vehicle = Vehicle(
+      id: _vehicle.id,
+      brand: _vehicle.brand,
+      modell: _vehicle.modell,
+      km: _vehicle.km,
+      color: _vehicle.color,
+      licensePlate: _vehicle.licensePlate,
+      year: _vehicle.year,
+      engine: _vehicle.engine,
+      chassisNumber: _vehicle.chassisNumber,
+      refuels: _vehicle.refuels,
+      services: updatedServices,
+    );
+
+    notifyListeners();
   }
 }

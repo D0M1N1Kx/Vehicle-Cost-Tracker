@@ -110,12 +110,17 @@ class MainPage extends StatelessWidget {
 
                 if (vehicles.length == 1) {
                   if (context.mounted) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ServiceLogPage(vehicle: vehicles.first),
-                      ),
-                    );
+                    final Vehicle? updatedVehicle = await Navigator.of(context)
+                        .push<Vehicle>(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ServiceLogPage(vehicle: vehicles.first),
+                          ),
+                        );
+
+                    if (updatedVehicle != null) {
+                      await repo.editVehicle(updatedVehicle);
+                    }
                   }
                   return;
                 }
@@ -126,11 +131,17 @@ class MainPage extends StatelessWidget {
                 );
 
                 if (selected != null && context.mounted) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ServiceLogPage(vehicle: selected),
-                    ),
-                  );
+                  final Vehicle? updatedVehicle = await Navigator.of(context)
+                      .push<Vehicle>(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ServiceLogPage(vehicle: selected),
+                        ),
+                      );
+
+                  if (updatedVehicle != null) {
+                    await repo.editVehicle(updatedVehicle);
+                  }
                 }
               },
               icon: Icons.edit_document,

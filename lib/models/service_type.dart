@@ -12,5 +12,4 @@ enum ServiceType {
   Clutch,
   ControlBelt,
   TechnicalExam,
-  Refuel,
 }
