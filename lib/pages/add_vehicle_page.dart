@@ -45,31 +45,31 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
 
     // Check if any required field is empty
     if (brand == null || brand.isEmpty) {
-      _showErrorSnackbar('Please select a brand');
+      _showErrorSnackbar(AppLocalizations.of(context)!.brandErr);
       return false;
     }
     if (modell.isEmpty) {
-      _showErrorSnackbar('Please enter a model name');
+      _showErrorSnackbar(AppLocalizations.of(context)!.modellErr);
       return false;
     }
     if (year.isEmpty) {
-      _showErrorSnackbar('Please enter a year');
+      _showErrorSnackbar(AppLocalizations.of(context)!.yearErr);
       return false;
     }
     if (odometer.isEmpty) {
-      _showErrorSnackbar('Please enter odometer reading');
+      _showErrorSnackbar(AppLocalizations.of(context)!.odometerErr);
       return false;
     }
     if (license.isEmpty) {
-      _showErrorSnackbar('Please enter license plate');
+      _showErrorSnackbar(AppLocalizations.of(context)!.licensePlateErr);
       return false;
     }
     if (engine.isEmpty) {
-      _showErrorSnackbar('Please enter engine type');
+      _showErrorSnackbar(AppLocalizations.of(context)!.engineTypeErr);
       return false;
     }
     if (color.isEmpty) {
-      _showErrorSnackbar('Please enter color');
+      _showErrorSnackbar(AppLocalizations.of(context)!.colorErr);
       return false;
     }
 
@@ -77,11 +77,11 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
     final int? parsedOdometer = int.tryParse(odometer);
 
     if (parsedYear == null) {
-      _showErrorSnackbar('Year must be a valid number');
+      _showErrorSnackbar(AppLocalizations.of(context)!.yearErrValid);
       return false;
     }
     if (parsedOdometer == null) {
-      _showErrorSnackbar('Odometer must be a valid number');
+      _showErrorSnackbar(AppLocalizations.of(context)!.odometerErrValid);
       return false;
     }
 

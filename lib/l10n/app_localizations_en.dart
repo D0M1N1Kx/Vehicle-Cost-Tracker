@@ -69,22 +69,49 @@ class AppLocalizationsEn extends AppLocalizations {
   String get brand => 'Brand';
 
   @override
+  String get brandErr => 'Please select a brand';
+
+  @override
   String get modell => 'Modell';
+
+  @override
+  String get modellErr => 'Please enter a model name';
 
   @override
   String get engineType => 'Engine type';
 
   @override
+  String get engineTypeErr => 'Please enter engine type';
+
+  @override
   String get color => 'Color';
+
+  @override
+  String get colorErr => 'Please enter color';
 
   @override
   String get year => 'Year';
 
   @override
+  String get yearErr => 'Please enter a year';
+
+  @override
+  String get yearErrValid => 'Year must be a valid number';
+
+  @override
   String get odometer => 'Odometer reading';
 
   @override
+  String get odometerErr => 'Please enter odometer reading';
+
+  @override
+  String get odometerErrValid => 'Odometer must be a valid number';
+
+  @override
   String get licensePlate => 'License plate';
+
+  @override
+  String get licensePlateErr => 'Please enter license plate';
 
   @override
   String get chassisNumber => 'Chassis number (optional)';

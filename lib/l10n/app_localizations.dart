@@ -220,11 +220,23 @@ abstract class AppLocalizations {
   /// **'Brand'**
   String get brand;
 
+  /// No description provided for @brandErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a brand'**
+  String get brandErr;
+
   /// No description provided for @modell.
   ///
   /// In en, this message translates to:
   /// **'Modell'**
   String get modell;
+
+  /// No description provided for @modellErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a model name'**
+  String get modellErr;
 
   /// No description provided for @engineType.
   ///
@@ -232,11 +244,23 @@ abstract class AppLocalizations {
   /// **'Engine type'**
   String get engineType;
 
+  /// No description provided for @engineTypeErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter engine type'**
+  String get engineTypeErr;
+
   /// No description provided for @color.
   ///
   /// In en, this message translates to:
   /// **'Color'**
   String get color;
+
+  /// No description provided for @colorErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter color'**
+  String get colorErr;
 
   /// No description provided for @year.
   ///
@@ -244,17 +268,47 @@ abstract class AppLocalizations {
   /// **'Year'**
   String get year;
 
+  /// No description provided for @yearErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a year'**
+  String get yearErr;
+
+  /// No description provided for @yearErrValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Year must be a valid number'**
+  String get yearErrValid;
+
   /// No description provided for @odometer.
   ///
   /// In en, this message translates to:
   /// **'Odometer reading'**
   String get odometer;
 
+  /// No description provided for @odometerErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter odometer reading'**
+  String get odometerErr;
+
+  /// No description provided for @odometerErrValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Odometer must be a valid number'**
+  String get odometerErrValid;
+
   /// No description provided for @licensePlate.
   ///
   /// In en, this message translates to:
   /// **'License plate'**
   String get licensePlate;
+
+  /// No description provided for @licensePlateErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter license plate'**
+  String get licensePlateErr;
 
   /// No description provided for @chassisNumber.
   ///
