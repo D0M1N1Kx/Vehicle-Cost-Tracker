@@ -180,4 +180,25 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get noServicesOrRefuels => 'Nincsen szervíz vagy tankolás feljegyezve';
+
+  @override
+  String get serviceType => 'Service Type';
+
+  @override
+  String get serviceTypeErr => 'Please select a service type';
+
+  @override
+  String get cost => 'Cost';
+
+  @override
+  String get costErr => 'Please enter a cost';
+
+  @override
+  String get costErrValid => 'Cost must be a valid number';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get addService => 'Add Service';
 }

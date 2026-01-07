@@ -75,5 +75,12 @@
   "allServices": "Alle Wartungen",
   "allCosts": "Alle Kosten",
   "newServiceLog": "Neue Wartung",
-  "noServicesOrRefuels": "Keine Wartungen oder Tankungen erfasst"
+  "noServicesOrRefuels": "Keine Wartungen oder Tankungen erfasst",
+  "serviceType": "Wartungstyp",
+  "serviceTypeErr": "Bitte wählen Sie einen Wartungstyp",
+  "cost": "Kosten",
+  "costErr": "Bitte geben Sie die Kosten ein",
+  "costErrValid": "Die Kosten müssen eine ganze Zahl sein",
+  "cancel": "Abbrechen",
+  "addService": "Wartung hinzufügen"
 }

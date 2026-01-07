@@ -435,6 +435,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No services or refuels recorded'**
   String get noServicesOrRefuels;
+
+  /// No description provided for @serviceType.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Type'**
+  String get serviceType;
+
+  /// No description provided for @serviceTypeErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a service type'**
+  String get serviceTypeErr;
+
+  /// No description provided for @cost.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost'**
+  String get cost;
+
+  /// No description provided for @costErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a cost'**
+  String get costErr;
+
+  /// No description provided for @costErrValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost must be a valid number'**
+  String get costErrValid;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @addService.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Service'**
+  String get addService;
 }
 
 class _AppLocalizationsDelegate

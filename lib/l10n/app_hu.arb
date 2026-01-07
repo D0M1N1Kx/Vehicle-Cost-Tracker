@@ -58,5 +58,12 @@
     "allServices": "Összes szervíz",
     "allCosts": "Összes költség",
     "newServiceLog": "Új szervíz",
-    "noServicesOrRefuels": "Nincsen szervíz vagy tankolás feljegyezve"
+    "noServicesOrRefuels": "Nincsen szervíz vagy tankolás feljegyezve",
+    "serviceType": "Szervíz típusa",
+    "serviceTypeErr": "Kérlek válassz egy szervíz típust",
+    "cost": "Költség",
+    "costErr": "Kérlek adj meg egy költséget",
+    "costErrValid": "Költségnek egész számnak kell lennie",
+    "cancel": "Mégse",
+    "addService": "Szerviz hozzáadása"
 }

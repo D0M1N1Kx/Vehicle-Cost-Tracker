@@ -177,4 +177,25 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noServicesOrRefuels => 'Keine Wartungen oder Tankungen erfasst';
+
+  @override
+  String get serviceType => 'Wartungstyp';
+
+  @override
+  String get serviceTypeErr => 'Bitte wählen Sie einen Wartungstyp';
+
+  @override
+  String get cost => 'Kosten';
+
+  @override
+  String get costErr => 'Bitte geben Sie die Kosten ein';
+
+  @override
+  String get costErrValid => 'Die Kosten müssen eine gültige Zahl sein';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get addService => 'Add Service';
 }
