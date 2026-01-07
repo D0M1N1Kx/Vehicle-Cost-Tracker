@@ -206,4 +206,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get selectVehicle => 'Select Vehicle';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get currencyLabel => 'Currency';
+
+  @override
+  String get distanceUnit => 'Distance unit';
+
+  @override
+  String get kilometers => 'kilometers';
+
+  @override
+  String get miles => 'miles';
+
+  @override
+  String get fuelUnitLabel => 'Fuel unit';
+
+  @override
+  String get liters => 'liters';
+
+  @override
+  String get gallons => 'gallons';
+
+  @override
+  String get quickPresets => 'Quick presets';
 }

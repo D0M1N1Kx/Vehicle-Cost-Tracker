@@ -207,5 +207,32 @@ class AppLocalizationsDe extends AppLocalizations {
       'Füge deiner Garage ein neues Auto hinzu, um mit der Führung eines Protokolls zu beginnen!';
 
   @override
-  String get selectVehicle => 'Select Vehicle';
+  String get selectVehicle => 'Fahrzeug auswählen';
+
+  @override
+  String get language => 'Sprache';
+
+  @override
+  String get currencyLabel => 'Währung';
+
+  @override
+  String get distanceUnit => 'Entfernungseinheit';
+
+  @override
+  String get kilometers => 'Kilometer';
+
+  @override
+  String get miles => 'Meilen';
+
+  @override
+  String get fuelUnitLabel => 'Kraftstoffeinheit';
+
+  @override
+  String get liters => 'Liter';
+
+  @override
+  String get gallons => 'Gallonen';
+
+  @override
+  String get quickPresets => 'Schnelleinstellungen';
 }

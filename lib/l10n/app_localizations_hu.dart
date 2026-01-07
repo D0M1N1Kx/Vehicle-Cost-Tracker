@@ -210,5 +210,32 @@ class AppLocalizationsHu extends AppLocalizations {
       'Adj a garazsadhoz új autót, hogy elkezdhess naplót vezetni!';
 
   @override
-  String get selectVehicle => 'Select Vehicle';
+  String get selectVehicle => 'Válassz autót';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get currencyLabel => 'Currency';
+
+  @override
+  String get distanceUnit => 'Distance unit';
+
+  @override
+  String get kilometers => 'Kilométer';
+
+  @override
+  String get miles => 'Mérföld';
+
+  @override
+  String get fuelUnitLabel => 'Fuel unit';
+
+  @override
+  String get liters => 'Liter';
+
+  @override
+  String get gallons => 'Gallon';
+
+  @override
+  String get quickPresets => 'Quick presets';
 }

@@ -64,5 +64,14 @@
     "addService": "Add Service",
     "emptyGarage": "Your garage is empty",
     "addANewVehicle": "Add a new vehicle to start keeping a maintenance log",
-    "selectVehicle": "Select Vehicle"
+    "selectVehicle": "Select Vehicle",
+    "language": "Language",
+    "currencyLabel": "Currency",
+    "distanceUnit": "Distance unit",
+    "kilometers": "kilometers",
+    "miles": "miles",
+    "fuelUnitLabel": "Fuel unit",
+    "liters": "liters",
+    "gallons": "gallons",
+    "quickPresets": "Quick presets"
 }

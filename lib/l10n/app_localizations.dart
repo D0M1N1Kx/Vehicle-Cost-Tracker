@@ -495,6 +495,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select Vehicle'**
   String get selectVehicle;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @currencyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Currency'**
+  String get currencyLabel;
+
+  /// No description provided for @distanceUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Distance unit'**
+  String get distanceUnit;
+
+  /// No description provided for @kilometers.
+  ///
+  /// In en, this message translates to:
+  /// **'kilometers'**
+  String get kilometers;
+
+  /// No description provided for @miles.
+  ///
+  /// In en, this message translates to:
+  /// **'miles'**
+  String get miles;
+
+  /// No description provided for @fuelUnitLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel unit'**
+  String get fuelUnitLabel;
+
+  /// No description provided for @liters.
+  ///
+  /// In en, this message translates to:
+  /// **'liters'**
+  String get liters;
+
+  /// No description provided for @gallons.
+  ///
+  /// In en, this message translates to:
+  /// **'gallons'**
+  String get gallons;
+
+  /// No description provided for @quickPresets.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick presets'**
+  String get quickPresets;
 }
 
 class _AppLocalizationsDelegate

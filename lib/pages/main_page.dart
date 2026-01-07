@@ -8,6 +8,7 @@ import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/widgets/button_card.dart';
 import 'package:vehicle_cost_tracker_app/widgets/vehicle_selector_dialog.dart';
+import 'package:vehicle_cost_tracker_app/pages/settings_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -155,7 +156,11 @@ class MainPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ButtonCard(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => SettingsPage()));
+              },
               icon: Icons.settings,
               iconColor: Colors.grey,
               title: AppLocalizations.of(context)!.settings,
