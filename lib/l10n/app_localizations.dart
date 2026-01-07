@@ -5,7 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_hu.dart';
 
 // ignore_for_file: type=lint
 
@@ -92,7 +94,11 @@ abstract class AppLocalizations {
       ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('de'),
+    Locale('en'),
+    Locale('hu'),
+  ];
 
   /// No description provided for @appTitle.
   ///
@@ -106,17 +112,53 @@ abstract class AppLocalizations {
   /// **'Garage'**
   String get garage;
 
+  /// No description provided for @garageSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Managing and modifying your cars'**
+  String get garageSub;
+
+  /// No description provided for @maintenanceReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance reminder'**
+  String get maintenanceReminder;
+
+  /// No description provided for @maintenanceSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Recorded statuses and due dates'**
+  String get maintenanceSub;
+
+  /// No description provided for @noVehFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No vehicles found. Please add a vehicle first.'**
+  String get noVehFound;
+
   /// No description provided for @refuelingLog.
   ///
   /// In en, this message translates to:
   /// **'Refueling Log'**
   String get refuelingLog;
 
+  /// No description provided for @refuelingSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracking monthly fuel costs'**
+  String get refuelingSub;
+
   /// No description provided for @serviceLog.
   ///
   /// In en, this message translates to:
   /// **'Service Log'**
   String get serviceLog;
+
+  /// No description provided for @serviceSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Repairs carried out and their costs'**
+  String get serviceSub;
 
   /// No description provided for @monthlyCost.
   ///
@@ -135,6 +177,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fuel Quantity'**
   String get fuelQuantity;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @settingsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Languages, currency, units and other options'**
+  String get settingsSub;
 
   /// No description provided for @currency.
   ///
@@ -166,7 +220,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en'].contains(locale.languageCode);
+      <String>['de', 'en', 'hu'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -175,8 +229,12 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'de':
+      return AppLocalizationsDe();
     case 'en':
       return AppLocalizationsEn();
+    case 'hu':
+      return AppLocalizationsHu();
   }
 
   throw FlutterError(

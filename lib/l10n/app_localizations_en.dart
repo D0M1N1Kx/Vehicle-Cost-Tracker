@@ -15,10 +15,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get garage => 'Garage';
 
   @override
+  String get garageSub => 'Managing and modifying your cars';
+
+  @override
+  String get maintenanceReminder => 'Maintenance reminder';
+
+  @override
+  String get maintenanceSub => 'Recorded statuses and due dates';
+
+  @override
+  String get noVehFound => 'No vehicles found. Please add a vehicle first.';
+
+  @override
   String get refuelingLog => 'Refueling Log';
 
   @override
+  String get refuelingSub => 'Tracking monthly fuel costs';
+
+  @override
   String get serviceLog => 'Service Log';
+
+  @override
+  String get serviceSub => 'Repairs carried out and their costs';
 
   @override
   String get monthlyCost => 'Monthly Cost';
@@ -28,6 +46,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fuelQuantity => 'Fuel Quantity';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get settingsSub => 'Languages, currency, units and other options';
 
   @override
   String get currency => '\$';

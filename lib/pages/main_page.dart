@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vehicle_cost_tracker_app/config.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations_en.dart';
 import 'package:vehicle_cost_tracker_app/pages/garage_page.dart';
 import 'package:vehicle_cost_tracker_app/pages/refueling_log_page.dart';
 import 'package:vehicle_cost_tracker_app/pages/service_log_page.dart';
@@ -14,7 +15,10 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text(appTitle)),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(AppLocalizations.of(context)!.appTitle),
+      ),
       body: Padding(
         padding: EdgeInsets.only(left: 16, right: 16, top: 36),
         child: Column(
@@ -29,16 +33,16 @@ class MainPage extends StatelessWidget {
               },
               icon: Icons.garage,
               iconColor: Colors.blue,
-              title: 'Garage',
-              subtitle: 'Managing and modifying your cars',
+              title: AppLocalizations.of(context)!.garage,
+              subtitle: AppLocalizations.of(context)!.garageSub,
             ),
             SizedBox(height: 20),
             ButtonCard(
               onTap: () {},
               icon: Icons.notifications_active,
               iconColor: Colors.yellow,
-              title: 'Maintenance reminder',
-              subtitle: 'Recorded statuses and due dates',
+              title: AppLocalizations.of(context)!.maintenanceReminder,
+              subtitle: AppLocalizations.of(context)!.maintenanceSub,
             ),
             SizedBox(height: 20),
             ButtonCard(
@@ -50,7 +54,7 @@ class MainPage extends StatelessWidget {
                 if (vehicles.isEmpty) {
                   _showErrorSnackbar(
                     context,
-                    'No vehicles found. Please add a vehicle first.',
+                    AppLocalizations.of(context)!.noVehFound,
                   );
                   return;
                 }
@@ -90,8 +94,8 @@ class MainPage extends StatelessWidget {
               },
               icon: Icons.local_gas_station_sharp,
               iconColor: Colors.green,
-              title: 'Refueling log',
-              subtitle: 'Tracking monthly fuel costs',
+              title: AppLocalizations.of(context)!.refuelingLog,
+              subtitle: AppLocalizations.of(context)!.refuelingSub,
             ),
             SizedBox(height: 20),
             ButtonCard(
@@ -103,7 +107,7 @@ class MainPage extends StatelessWidget {
                 if (vehicles.isEmpty) {
                   _showErrorSnackbar(
                     context,
-                    'No vehicles found. Please add a vehicle first.',
+                    AppLocalizations.of(context)!.noVehFound,
                   );
                   return;
                 }
@@ -146,16 +150,16 @@ class MainPage extends StatelessWidget {
               },
               icon: Icons.edit_document,
               iconColor: Colors.indigo,
-              title: 'Service log',
-              subtitle: 'Repairs carried out and their costs',
+              title: AppLocalizations.of(context)!.serviceLog,
+              subtitle: AppLocalizations.of(context)!.serviceSub,
             ),
             SizedBox(height: 20),
             ButtonCard(
               onTap: () {},
               icon: Icons.settings,
               iconColor: Colors.grey,
-              title: 'Settings',
-              subtitle: 'Import, export and other options',
+              title: AppLocalizations.of(context)!.settings,
+              subtitle: AppLocalizations.of(context)!.settingsSub,
             ),
           ],
         ),
