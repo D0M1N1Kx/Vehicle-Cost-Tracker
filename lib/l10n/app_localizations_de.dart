@@ -165,4 +165,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get refuelsThisMonth => 'Tankungen in diesem Monat';
+
+  @override
+  String get allServices => 'Alle Wartungen';
+
+  @override
+  String get allCosts => 'Alle Kosten';
+
+  @override
+  String get newServiceLog => 'Neue Wartung';
+
+  @override
+  String get noServicesOrRefuels => 'Keine Wartungen oder Tankungen erfasst';
 }

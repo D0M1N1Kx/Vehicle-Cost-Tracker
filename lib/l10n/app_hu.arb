@@ -27,6 +27,10 @@
     "color": "Szín",
     "colorErr": "Kérlek írj be egy színt",
     "year": "Évjárat",
+    "kilometers": "Kilométer",
+    "miles": "Mérföld",
+    "liters": "Liter",
+    "gallons": "Gallon",
     "yearErr": "Kérlek add meg az évjáratot",
     "yearErrValid": "Az évjáratnak egész számnak kell lennie",
     "odometer": "Kilóméter óra állása",
@@ -50,5 +54,9 @@
     "fuelPrice": "Üzemanyagár",
     "fuelCost": "Üzemanyagköltség",
     "noRefuelsInThisMonth": "Nincs tankolás ebben a hónapban",
-    "refuelsThisMonth": "Tankolás ebben a hónapban"
+    "refuelsThisMonth": "Tankolás ebben a hónapban",
+    "allServices": "Összes szervíz",
+    "allCosts": "Összes költség",
+    "newServiceLog": "Új szervíz",
+    "noServicesOrRefuels": "Nincsen szervíz vagy tankolás feljegyezve"
 }

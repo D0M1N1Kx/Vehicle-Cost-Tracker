@@ -50,5 +50,9 @@
     "fuelPrice": "Fuel Price",
     "fuelCost": "Fuel Cost",
     "noRefuelsInThisMonth": "No refuels in this month",
-    "refuelsThisMonth": "Refuels this month"
+    "refuelsThisMonth": "Refuels this month",
+    "allServices": "All services",
+    "allCosts": "All costs",
+    "newServiceLog": "New service log",
+    "noServicesOrRefuels": "No services or refuels recorded"
 }

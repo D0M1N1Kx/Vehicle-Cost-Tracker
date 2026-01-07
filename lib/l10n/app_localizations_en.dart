@@ -163,4 +163,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get refuelsThisMonth => 'Refuels this month';
+
+  @override
+  String get allServices => 'All services';
+
+  @override
+  String get allCosts => 'All costs';
+
+  @override
+  String get newServiceLog => 'New service log';
+
+  @override
+  String get noServicesOrRefuels => 'No services or refuels recorded';
 }

@@ -71,5 +71,9 @@
   "allServices": "Alle Wartungen",
   "allCosts": "Alle Kosten",
   "newServiceLog": "Neues Wartungsprotokoll",
+  "noServicesOrRefuels": "Keine Wartungen oder Tankungen erfasst",
+  "allServices": "Alle Wartungen",
+  "allCosts": "Alle Kosten",
+  "newServiceLog": "Neue Wartung",
   "noServicesOrRefuels": "Keine Wartungen oder Tankungen erfasst"
 }

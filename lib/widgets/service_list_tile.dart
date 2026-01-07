@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
+import 'package:vehicle_cost_tracker_app/viewmodels/settings_view_model.dart';
 
 class ServiceListTile extends StatelessWidget {
   final IconData icon;
@@ -28,7 +31,7 @@ class ServiceListTile extends StatelessWidget {
         subtitle: Text(date),
         leading: Icon(icon, color: color, size: 38),
         trailing: Text(
-          '${price.toString()}\$',
+          '${price.toString()} ${context.read<SettingsViewModel>().currency}',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,

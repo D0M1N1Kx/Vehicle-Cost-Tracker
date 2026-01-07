@@ -411,6 +411,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Refuels this month'**
   String get refuelsThisMonth;
+
+  /// No description provided for @allServices.
+  ///
+  /// In en, this message translates to:
+  /// **'All services'**
+  String get allServices;
+
+  /// No description provided for @allCosts.
+  ///
+  /// In en, this message translates to:
+  /// **'All costs'**
+  String get allCosts;
+
+  /// No description provided for @newServiceLog.
+  ///
+  /// In en, this message translates to:
+  /// **'New service log'**
+  String get newServiceLog;
+
+  /// No description provided for @noServicesOrRefuels.
+  ///
+  /// In en, this message translates to:
+  /// **'No services or refuels recorded'**
+  String get noServicesOrRefuels;
 }
 
 class _AppLocalizationsDelegate

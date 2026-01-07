@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/viewmodels/service_view_model.dart';
 import 'package:vehicle_cost_tracker_app/widgets/add_service_dialog.dart';
@@ -49,7 +50,7 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                   '${_car.brand} ${_car.modell}',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                subtitle: Text('Service Log'),
+                subtitle: Text(AppLocalizations.of(context)!.serviceLog),
               ),
               leading: IconButton(
                 onPressed: () => _onBackPressed(context),
@@ -91,7 +92,9 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Text('All services'),
+                                    Text(
+                                      AppLocalizations.of(context)!.allServices,
+                                    ),
                                   ],
                                 ),
                                 SizedBox(width: 20),
@@ -110,7 +113,9 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Text('All costs'),
+                                    Text(
+                                      AppLocalizations.of(context)!.allCosts,
+                                    ),
                                   ],
                                 ),
                               ],
@@ -128,7 +133,9 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
 
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content: Text('Service Saved'),
+                                      content: Text(
+                                        AppLocalizations.of(context)!.save,
+                                      ),
                                       backgroundColor: Colors.green,
                                       duration: Duration(seconds: 1),
                                     ),
@@ -141,7 +148,7 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                                 ),
                               ),
                               child: Text(
-                                '+ New service log',
+                                '+ ${AppLocalizations.of(context)!.newServiceLog}',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
@@ -164,7 +171,7 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                         if (combinedList.isEmpty) {
                           return Center(
                             child: Text(
-                              'No services or refuels recorded',
+                              AppLocalizations.of(context)!.noServicesOrRefuels,
                               style: TextStyle(color: Colors.grey),
                             ),
                           );

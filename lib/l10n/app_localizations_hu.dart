@@ -168,4 +168,16 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get refuelsThisMonth => 'Tankolás ebben a hónapban';
+
+  @override
+  String get allServices => 'Összes szervíz';
+
+  @override
+  String get allCosts => 'Összes költség';
+
+  @override
+  String get newServiceLog => 'Új szervíz';
+
+  @override
+  String get noServicesOrRefuels => 'Nincsen szervíz vagy tankolás feljegyezve';
 }
