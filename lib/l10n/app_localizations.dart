@@ -489,6 +489,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add a new vehicle to start keeping a maintenance log'**
   String get addANewVehicle;
+
+  /// No description provided for @selectVehicle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Vehicle'**
+  String get selectVehicle;
 }
 
 class _AppLocalizationsDelegate

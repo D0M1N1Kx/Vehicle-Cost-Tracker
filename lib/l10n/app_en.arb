@@ -63,5 +63,6 @@
     "cancel": "Cancel",
     "addService": "Add Service",
     "emptyGarage": "Your garage is empty",
-    "addANewVehicle": "Add a new vehicle to start keeping a maintenance log"
+    "addANewVehicle": "Add a new vehicle to start keeping a maintenance log",
+    "selectVehicle": "Select Vehicle"
 }

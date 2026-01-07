@@ -67,5 +67,6 @@
     "cancel": "Mégse",
     "addService": "Szerviz hozzáadása",
     "emptyGarage": "A garazsad még üres",
-    "addANewVehicle": "Adj a garazsadhoz új autót, hogy elkezdhess naplót vezetni!"
+    "addANewVehicle": "Adj a garazsadhoz új autót, hogy elkezdhess naplót vezetni!",
+    "selectVehicle": "Válassz autót"
 }

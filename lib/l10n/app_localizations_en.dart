@@ -203,4 +203,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get addANewVehicle =>
       'Add a new vehicle to start keeping a maintenance log';
+
+  @override
+  String get selectVehicle => 'Select Vehicle';
 }

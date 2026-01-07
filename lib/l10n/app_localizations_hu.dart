@@ -208,4 +208,7 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get addANewVehicle =>
       'Adj a garazsadhoz új autót, hogy elkezdhess naplót vezetni!';
+
+  @override
+  String get selectVehicle => 'Select Vehicle';
 }

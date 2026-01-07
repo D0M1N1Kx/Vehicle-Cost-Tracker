@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 
 Future<Vehicle?> showVehicleSelector(
@@ -9,7 +10,7 @@ Future<Vehicle?> showVehicleSelector(
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: Text('Select Vehicle'),
+        title: Text(AppLocalizations.of(context)!.selectVehicle),
         alignment: Alignment.center,
         content: Container(
           width: double.maxFinite,

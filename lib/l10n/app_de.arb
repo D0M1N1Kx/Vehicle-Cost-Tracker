@@ -84,5 +84,6 @@
   "cancel": "Abbrechen",
   "addService": "Wartung hinzufügen",
   "emptyGarage": "Deine Garage ist noch leer",
-  "addANewVehicle": "Füge deiner Garage ein neues Auto hinzu, um mit der Führung eines Protokolls zu beginnen!"
+  "addANewVehicle": "Füge deiner Garage ein neues Auto hinzu, um mit der Führung eines Protokolls zu beginnen!",
+  "selectVehicle": "Fahrzeug auswählen"
 }

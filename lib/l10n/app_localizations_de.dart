@@ -205,4 +205,7 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get addANewVehicle =>
       'Füge deiner Garage ein neues Auto hinzu, um mit der Führung eines Protokolls zu beginnen!';
+
+  @override
+  String get selectVehicle => 'Select Vehicle';
 }
