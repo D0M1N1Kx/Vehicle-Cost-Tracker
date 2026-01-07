@@ -1,0 +1,12 @@
+{
+    "appTitle": "Járműköltség Követő",
+    "garage": "Garázs",
+    "refuelingLog": "Tankolás Napló",
+    "serviceLog": "Szervíz Napló",
+    "monthlyCost": "Havi Költség",
+    "totalCost": "Összes Költség",
+    "fuelQuantity": "Üzemanyag Mennyiség",
+    "currency": "Ft",
+    "unit": "km",
+    "fuelUnit": "L"
+}

@@ -1,0 +1,12 @@
+{
+  "appTitle": "Fahrzeugkostenverfolgung",
+  "garage": "Garage",
+  "refuelingLog": "Tanklog",
+  "serviceLog": "Wartungsprotokoll",
+  "monthlyCost": "Monatliche Kosten",
+  "totalCost": "Gesamtkosten",
+  "fuelQuantity": "Kraftstoffmenge",
+  "currency": "€",
+  "unit": "km",
+  "fuelUnit": "L"
+}

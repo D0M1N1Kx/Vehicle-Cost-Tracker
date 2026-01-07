@@ -1,0 +1,12 @@
+{
+    "appTitle": "Vehicle Cost Tracker",
+    "garage": "Garage",
+    "refuelingLog": "Refueling Log",
+    "serviceLog": "Service Log",
+    "monthlyCost": "Monthly Cost",
+    "totalCost": "Total Cost",
+    "fuelQuantity": "Fuel Quantity",
+    "currency": "$",
+    "unit": "km",
+    "fuelUnit": "L"
+}
