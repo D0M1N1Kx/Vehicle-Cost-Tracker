@@ -61,5 +61,7 @@
     "costErr": "Please enter a cost",
     "costErrValid": "Cost must be a valid number",
     "cancel": "Cancel",
-    "addService": "Add Service"
+    "addService": "Add Service",
+    "emptyGarage": "Your garage is empty",
+    "addANewVehicle": "Add a new vehicle to start keeping a maintenance log"
 }

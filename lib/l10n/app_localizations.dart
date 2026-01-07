@@ -477,6 +477,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add Service'**
   String get addService;
+
+  /// No description provided for @emptyGarage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your garage is empty'**
+  String get emptyGarage;
+
+  /// No description provided for @addANewVehicle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a new vehicle to start keeping a maintenance log'**
+  String get addANewVehicle;
 }
 
 class _AppLocalizationsDelegate

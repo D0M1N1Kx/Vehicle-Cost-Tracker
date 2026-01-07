@@ -82,5 +82,7 @@
   "costErr": "Bitte geben Sie die Kosten ein",
   "costErrValid": "Die Kosten müssen eine ganze Zahl sein",
   "cancel": "Abbrechen",
-  "addService": "Wartung hinzufügen"
+  "addService": "Wartung hinzufügen",
+  "emptyGarage": "Deine Garage ist noch leer",
+  "addANewVehicle": "Füge deiner Garage ein neues Auto hinzu, um mit der Führung eines Protokolls zu beginnen!"
 }

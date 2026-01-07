@@ -65,5 +65,7 @@
     "costErr": "Kérlek adj meg egy költséget",
     "costErrValid": "Költségnek egész számnak kell lennie",
     "cancel": "Mégse",
-    "addService": "Szerviz hozzáadása"
+    "addService": "Szerviz hozzáadása",
+    "emptyGarage": "A garazsad még üres",
+    "addANewVehicle": "Adj a garazsadhoz új autót, hogy elkezdhess naplót vezetni!"
 }

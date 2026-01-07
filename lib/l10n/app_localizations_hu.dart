@@ -182,23 +182,30 @@ class AppLocalizationsHu extends AppLocalizations {
   String get noServicesOrRefuels => 'Nincsen szervíz vagy tankolás feljegyezve';
 
   @override
-  String get serviceType => 'Service Type';
+  String get serviceType => 'Szervíz típusa';
 
   @override
-  String get serviceTypeErr => 'Please select a service type';
+  String get serviceTypeErr => 'Kérlek válassz egy szervíz típust';
 
   @override
-  String get cost => 'Cost';
+  String get cost => 'Költség';
 
   @override
-  String get costErr => 'Please enter a cost';
+  String get costErr => 'Kérlek adj meg egy költséget';
 
   @override
-  String get costErrValid => 'Cost must be a valid number';
+  String get costErrValid => 'Költségnek egész számnak kell lennie';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Mégse';
 
   @override
-  String get addService => 'Add Service';
+  String get addService => 'Szerviz hozzáadása';
+
+  @override
+  String get emptyGarage => 'A garazsad még üres';
+
+  @override
+  String get addANewVehicle =>
+      'Adj a garazsadhoz új autót, hogy elkezdhess naplót vezetni!';
 }

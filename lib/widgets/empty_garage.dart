@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
 
 class EmptyGarage extends StatelessWidget {
   const EmptyGarage({super.key});
@@ -15,7 +16,7 @@ class EmptyGarage extends StatelessWidget {
             Icon(Icons.car_crash, size: 62, color: Colors.red),
             SizedBox(height: 20),
             Text(
-              'Your garage is empty',
+              AppLocalizations.of(context)!.emptyGarage,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 26,
@@ -24,7 +25,7 @@ class EmptyGarage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'Add a new vehicle to start keeping a maintenance log',
+              AppLocalizations.of(context)!.addANewVehicle,
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.center,
             ),

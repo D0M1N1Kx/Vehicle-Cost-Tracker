@@ -191,11 +191,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get costErr => 'Bitte geben Sie die Kosten ein';
 
   @override
-  String get costErrValid => 'Die Kosten müssen eine gültige Zahl sein';
+  String get costErrValid => 'Die Kosten müssen eine ganze Zahl sein';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Abbrechen';
 
   @override
-  String get addService => 'Add Service';
+  String get addService => 'Wartung hinzufügen';
+
+  @override
+  String get emptyGarage => 'Deine Garage ist noch leer';
+
+  @override
+  String get addANewVehicle =>
+      'Füge deiner Garage ein neues Auto hinzu, um mit der Führung eines Protokolls zu beginnen!';
 }
