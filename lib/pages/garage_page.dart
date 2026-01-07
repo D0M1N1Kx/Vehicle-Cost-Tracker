@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/pages/add_vehicle_page.dart';
 import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
@@ -16,7 +17,10 @@ class GaragePage extends StatelessWidget {
       create: (_) => GarageViewModel()..loadVehicles(),
       builder: (context, child) {
         return Scaffold(
-          appBar: AppBar(centerTitle: true, title: Text('GARAGE')),
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(AppLocalizations.of(context)!.garage),
+          ),
           floatingActionButton: FloatingActionButton(
             onPressed: () async {
               final Vehicle? newVehicle = await Navigator.of(context)
