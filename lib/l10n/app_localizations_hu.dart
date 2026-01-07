@@ -65,59 +65,107 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fuelUnit => 'L';
 
   @override
-  String get addVehicle => 'Add Vehicle';
+  String get addVehicle => 'Jármű hozzáadása';
 
   @override
-  String get brand => 'Brand';
+  String get brand => 'Márka';
 
   @override
-  String get brandErr => 'Please select a brand';
+  String get brandErr => 'Kérlek válassz egy márkát';
 
   @override
   String get modell => 'Modell';
 
   @override
-  String get modellErr => 'Please enter a model name';
+  String get modellErr => 'Kérlek írj be egy modell nevet';
 
   @override
-  String get engineType => 'Engine type';
+  String get engineType => 'Motor típusa';
 
   @override
-  String get engineTypeErr => 'Please enter engine type';
+  String get engineTypeErr => 'Kérlek írd be a motor típusát';
 
   @override
-  String get color => 'Color';
+  String get color => 'Szín';
 
   @override
-  String get colorErr => 'Please enter color';
+  String get colorErr => 'Kérlek írj be egy színt';
 
   @override
-  String get year => 'Year';
+  String get year => 'Évjárat';
 
   @override
-  String get yearErr => 'Please enter a year';
+  String get yearErr => 'Kérlek add meg az évjáratot';
 
   @override
-  String get yearErrValid => 'Year must be a valid number';
+  String get yearErrValid => 'Az évjáratnak egész számnak kell lennie';
 
   @override
-  String get odometer => 'Odometer reading';
+  String get odometer => 'Kilóméter óra állása';
 
   @override
-  String get odometerErr => 'Please enter odometer reading';
+  String get odometerErr => 'Kérlek add meg a kilóméter óra állását';
 
   @override
-  String get odometerErrValid => 'Odometer must be a valid number';
+  String get odometerErrValid =>
+      'Kilóméter óra állása egész számnak kell lennie';
 
   @override
-  String get licensePlate => 'License plate';
+  String get licensePlate => 'Rendszám tábla';
 
   @override
-  String get licensePlateErr => 'Please enter license plate';
+  String get licensePlateErr => 'Kérlek írd be a rendszám táblát';
 
   @override
-  String get chassisNumber => 'Chassis number (optional)';
+  String get chassisNumber => 'Vázszám (opcionális)';
 
   @override
-  String get save => 'Save';
+  String get save => 'Mentés';
+
+  @override
+  String get fuelQuantityErr => 'Kérjük, adja meg az üzemanyag mennyiségét';
+
+  @override
+  String get fuelPriceErr => 'Kérjük, adja meg az üzemanyag árát';
+
+  @override
+  String get fuelQuantityErrValid =>
+      'A mennyiségnek érvényes számnak kell lennie.';
+
+  @override
+  String get fuelPriceErrValid => 'Az árnak érvényes számnak kell lennie.';
+
+  @override
+  String get fuelQuantityErrGreater =>
+      'A mennyiségnek nagyobbnak kell lennie, mint 0';
+
+  @override
+  String get fuelPriceErrGreater => 'Az árnak nagyobbnak kell lennie, mint 0';
+
+  @override
+  String get refuelSaved => 'Tankolás elmentve!';
+
+  @override
+  String get refueling => 'Tankolás';
+
+  @override
+  String get avgPerFill => 'Átlagos ár tankolásonként';
+
+  @override
+  String get monthlyLiters => 'Havi liter';
+
+  @override
+  String get newRefuelLog => 'Új tankolási napló';
+
+  @override
+  String get fuelPrice => 'Üzemanyagár';
+
+  @override
+  String get fuelCost => 'Üzemanyagköltség';
+
+  @override
+  String get noRefuelsInThisMonth => 'Nincs tankolás ebben a hónapban';
+
+  @override
+  String get refuelsThisMonth => 'Tankolás ebben a hónapban';
 }

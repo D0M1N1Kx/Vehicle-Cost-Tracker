@@ -118,4 +118,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get fuelQuantityErr => 'Please enter fuel quantity';
+
+  @override
+  String get fuelPriceErr => 'Please enter fuel price';
+
+  @override
+  String get fuelQuantityErrValid => 'Quantity must be a valid number';
+
+  @override
+  String get fuelPriceErrValid => 'Price must be a valid number';
+
+  @override
+  String get fuelQuantityErrGreater => 'Quantity must be greater than 0';
+
+  @override
+  String get fuelPriceErrGreater => 'Price must be greater than 0';
+
+  @override
+  String get refuelSaved => 'Refuel saved!';
+
+  @override
+  String get refueling => 'Refueling';
+
+  @override
+  String get avgPerFill => 'Avg Per Fill';
+
+  @override
+  String get monthlyLiters => 'Monthly Liters';
+
+  @override
+  String get newRefuelLog => 'New refuel log';
+
+  @override
+  String get fuelPrice => 'Fuel Price';
+
+  @override
+  String get fuelCost => 'Fuel Cost';
+
+  @override
+  String get noRefuelsInThisMonth => 'No refuels in this month';
+
+  @override
+  String get refuelsThisMonth => 'Refuels this month';
 }

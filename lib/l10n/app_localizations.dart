@@ -321,6 +321,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
+
+  /// No description provided for @fuelQuantityErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter fuel quantity'**
+  String get fuelQuantityErr;
+
+  /// No description provided for @fuelPriceErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter fuel price'**
+  String get fuelPriceErr;
+
+  /// No description provided for @fuelQuantityErrValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity must be a valid number'**
+  String get fuelQuantityErrValid;
+
+  /// No description provided for @fuelPriceErrValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Price must be a valid number'**
+  String get fuelPriceErrValid;
+
+  /// No description provided for @fuelQuantityErrGreater.
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity must be greater than 0'**
+  String get fuelQuantityErrGreater;
+
+  /// No description provided for @fuelPriceErrGreater.
+  ///
+  /// In en, this message translates to:
+  /// **'Price must be greater than 0'**
+  String get fuelPriceErrGreater;
+
+  /// No description provided for @refuelSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuel saved!'**
+  String get refuelSaved;
+
+  /// No description provided for @refueling.
+  ///
+  /// In en, this message translates to:
+  /// **'Refueling'**
+  String get refueling;
+
+  /// No description provided for @avgPerFill.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg Per Fill'**
+  String get avgPerFill;
+
+  /// No description provided for @monthlyLiters.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Liters'**
+  String get monthlyLiters;
+
+  /// No description provided for @newRefuelLog.
+  ///
+  /// In en, this message translates to:
+  /// **'New refuel log'**
+  String get newRefuelLog;
+
+  /// No description provided for @fuelPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel Price'**
+  String get fuelPrice;
+
+  /// No description provided for @fuelCost.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel Cost'**
+  String get fuelCost;
+
+  /// No description provided for @noRefuelsInThisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'No refuels in this month'**
+  String get noRefuelsInThisMonth;
+
+  /// No description provided for @refuelsThisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuels this month'**
+  String get refuelsThisMonth;
 }
 
 class _AppLocalizationsDelegate

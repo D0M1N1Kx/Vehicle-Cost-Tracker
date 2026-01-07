@@ -35,5 +35,20 @@
     "licensePlate": "License plate",
     "licensePlateErr": "Please enter license plate",
     "chassisNumber": "Chassis number (optional)",
-    "save": "Save"
+    "save": "Save",
+    "fuelQuantityErr": "Please enter fuel quantity",
+    "fuelPriceErr": "Please enter fuel price",
+    "fuelQuantityErrValid": "Quantity must be a valid number",
+    "fuelPriceErrValid": "Price must be a valid number",
+    "fuelQuantityErrGreater": "Quantity must be greater than 0",
+    "fuelPriceErrGreater": "Price must be greater than 0",
+    "refuelSaved": "Refuel saved!",
+    "refueling": "Refueling",
+    "avgPerFill": "Avg Per Fill",
+    "monthlyLiters": "Monthly Liters",
+    "newRefuelLog": "New refuel log",
+    "fuelPrice": "Fuel Price",
+    "fuelCost": "Fuel Cost",
+    "noRefuelsInThisMonth": "No refuels in this month",
+    "refuelsThisMonth": "Refuels this month"
 }

@@ -35,5 +35,20 @@
     "licensePlate": "Rendszám tábla",
     "licensePlateErr": "Kérlek írd be a rendszám táblát",
     "chassisNumber": "Vázszám (opcionális)",
-    "save": "Mentés"
+    "save": "Mentés",
+    "fuelQuantityErr": "Kérjük, adja meg az üzemanyag mennyiségét",
+    "fuelPriceErr": "Kérjük, adja meg az üzemanyag árát",
+    "fuelQuantityErrValid": "A mennyiségnek érvényes számnak kell lennie.",
+    "fuelPriceErrValid": "Az árnak érvényes számnak kell lennie.",
+    "fuelQuantityErrGreater": "A mennyiségnek nagyobbnak kell lennie, mint 0",
+    "fuelPriceErrGreater": "Az árnak nagyobbnak kell lennie, mint 0",
+    "refuelSaved": "Tankolás elmentve!",
+    "refueling": "Tankolás",
+    "avgPerFill": "Átlagos ár tankolásonként",
+    "monthlyLiters": "Havi liter",
+    "newRefuelLog": "Új tankolási napló",
+    "fuelPrice": "Üzemanyagár",
+    "fuelCost": "Üzemanyagköltség",
+    "noRefuelsInThisMonth": "Nincs tankolás ebben a hónapban",
+    "refuelsThisMonth": "Tankolás ebben a hónapban"
 }

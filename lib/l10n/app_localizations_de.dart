@@ -15,7 +15,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get garage => 'Garage';
 
   @override
-  String get garageSub => 'Verwaltung und Modifizierung von Autos';
+  String get garageSub => 'Verwaltung und Modifizierung von Fahrzeugen';
 
   @override
   String get maintenanceReminder => 'Wartungserinnerung';
@@ -25,13 +25,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noVehFound =>
-      'Es wurden keine Fahrzeuge gefunden. Bitte fügen Sie zuerst ein Fahrzeug hinzu.';
+      'Keine Fahrzeuge gefunden. Bitte fügen Sie zuerst ein Fahrzeug hinzu.';
 
   @override
-  String get refuelingLog => 'Tanklog';
+  String get refuelingLog => 'Tankprotokoll';
 
   @override
-  String get refuelingSub => 'Monatliche Kraftstoffkosten erfassen';
+  String get refuelingSub => 'Monatliche Kraftstoffkosten verfolgen';
 
   @override
   String get serviceLog => 'Wartungsprotokoll';
@@ -64,59 +64,105 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fuelUnit => 'L';
 
   @override
-  String get addVehicle => 'Add Vehicle';
+  String get addVehicle => 'Fahrzeug hinzufügen';
 
   @override
-  String get brand => 'Brand';
+  String get brand => 'Marke';
 
   @override
-  String get brandErr => 'Please select a brand';
+  String get brandErr => 'Bitte wählen Sie eine Marke';
 
   @override
   String get modell => 'Modell';
 
   @override
-  String get modellErr => 'Please enter a model name';
+  String get modellErr => 'Bitte geben Sie einen Modellnamen ein';
 
   @override
-  String get engineType => 'Engine type';
+  String get engineType => 'Motortyp';
 
   @override
-  String get engineTypeErr => 'Please enter engine type';
+  String get engineTypeErr => 'Bitte geben Sie den Motortyp ein';
 
   @override
-  String get color => 'Color';
+  String get color => 'Farbe';
 
   @override
-  String get colorErr => 'Please enter color';
+  String get colorErr => 'Bitte geben Sie eine Farbe ein';
 
   @override
-  String get year => 'Year';
+  String get year => 'Jahrgang';
 
   @override
-  String get yearErr => 'Please enter a year';
+  String get yearErr => 'Bitte geben Sie das Jahr ein';
 
   @override
-  String get yearErrValid => 'Year must be a valid number';
+  String get yearErrValid => 'Das Jahr muss eine gültige Zahl sein';
 
   @override
-  String get odometer => 'Odometer reading';
+  String get odometer => 'Kilometerzähler';
 
   @override
-  String get odometerErr => 'Please enter odometer reading';
+  String get odometerErr => 'Bitte geben Sie den Kilometerzähler ein';
 
   @override
-  String get odometerErrValid => 'Odometer must be a valid number';
+  String get odometerErrValid =>
+      'Der Kilometerzähler muss eine gültige Zahl sein';
 
   @override
-  String get licensePlate => 'License plate';
+  String get licensePlate => 'Kennzeichen';
 
   @override
-  String get licensePlateErr => 'Please enter license plate';
+  String get licensePlateErr => 'Bitte geben Sie das Kennzeichen ein';
 
   @override
-  String get chassisNumber => 'Chassis number (optional)';
+  String get chassisNumber => 'Fahrgestellnummer (optional)';
 
   @override
-  String get save => 'Save';
+  String get save => 'Speichern';
+
+  @override
+  String get fuelQuantityErr => 'Bitte geben Sie die Kraftstoffmenge ein';
+
+  @override
+  String get fuelPriceErr => 'Bitte geben Sie den Kraftstoffpreis ein';
+
+  @override
+  String get fuelQuantityErrValid => 'Die Menge muss eine gültige Zahl sein';
+
+  @override
+  String get fuelPriceErrValid => 'Der Preis muss eine gültige Zahl sein';
+
+  @override
+  String get fuelQuantityErrGreater => 'Die Menge muss größer als 0 sein';
+
+  @override
+  String get fuelPriceErrGreater => 'Der Preis muss größer als 0 sein';
+
+  @override
+  String get refuelSaved => 'Betankung gespeichert!';
+
+  @override
+  String get refueling => 'Betankung';
+
+  @override
+  String get avgPerFill => 'Durchschnitt pro Tankstelle';
+
+  @override
+  String get monthlyLiters => 'Monatliche Liter';
+
+  @override
+  String get newRefuelLog => 'Neues Tankprotokoll';
+
+  @override
+  String get fuelPrice => 'Kraftstoffpreis (Währung / Liter)';
+
+  @override
+  String get fuelCost => 'Kraftstoffkosten';
+
+  @override
+  String get noRefuelsInThisMonth => 'Keine Tankungen in diesem Monat';
+
+  @override
+  String get refuelsThisMonth => 'Tankungen in diesem Monat';
 }

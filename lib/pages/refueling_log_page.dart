@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
 import 'package:vehicle_cost_tracker_app/models/field_type.dart';
 import 'package:vehicle_cost_tracker_app/models/refuel.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/viewmodels/refueling_view_model.dart';
+import 'package:vehicle_cost_tracker_app/viewmodels/settings_view_model.dart';
 import 'package:vehicle_cost_tracker_app/widgets/custom_input_field.dart';
 import 'package:vehicle_cost_tracker_app/widgets/month_selector.dart';
 
@@ -69,11 +71,11 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
     final pText = priceController.text.replaceAll(',', '.').trim();
 
     if (qText.isEmpty) {
-      _showErrorSnackbar('Please enter fuel quantity');
+      _showErrorSnackbar(AppLocalizations.of(context)!.fuelQuantityErr);
       return false;
     }
     if (pText.isEmpty) {
-      _showErrorSnackbar('Please enter fuel price');
+      _showErrorSnackbar(AppLocalizations.of(context)!.fuelPriceErr);
       return false;
     }
 
@@ -81,19 +83,19 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
     final double? p = double.tryParse(pText);
 
     if (q == null) {
-      _showErrorSnackbar('Quantity must be a valid number');
+      _showErrorSnackbar(AppLocalizations.of(context)!.fuelQuantityErrValid);
       return false;
     }
     if (p == null) {
-      _showErrorSnackbar('Price must be a valid number');
+      _showErrorSnackbar(AppLocalizations.of(context)!.fuelPriceErrValid);
       return false;
     }
     if (q <= 0) {
-      _showErrorSnackbar('Quantity must be greater than 0');
+      _showErrorSnackbar(AppLocalizations.of(context)!.fuelQuantityErrGreater);
       return false;
     }
     if (p <= 0) {
-      _showErrorSnackbar('Price must be greater than 0');
+      _showErrorSnackbar(AppLocalizations.of(context)!.fuelPriceErrGreater);
       return false;
     }
 
@@ -156,7 +158,7 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
     // Siker snackbar
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Refuel saved!'),
+        content: Text(AppLocalizations.of(context)!.refuelSaved),
         backgroundColor: Colors.green,
         duration: Duration(seconds: 1),
       ),
@@ -184,7 +186,7 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
             appBar: AppBar(
               centerTitle: true,
               title: Text(
-                'Refueling - ${widget.car.brand} ${widget.car.modell}',
+                '${AppLocalizations.of(context)!.refueling} - ${widget.car.brand} ${widget.car.modell}',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
@@ -210,7 +212,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                   children: [
                                     Expanded(
                                       child: _StatCard(
-                                        label: 'Monthly Cost',
+                                        label: AppLocalizations.of(
+                                          context,
+                                        )!.monthlyCost,
                                         value: viewModel.monthlyTotalCost
                                             .toString(),
                                         icon: Icons.calendar_month,
@@ -220,7 +224,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                     SizedBox(width: 8),
                                     Expanded(
                                       child: _StatCard(
-                                        label: 'Total Cost',
+                                        label: AppLocalizations.of(
+                                          context,
+                                        )!.totalCost,
                                         value: viewModel.totalCostAllTime
                                             .toString(),
                                         icon: Icons.wallet,
@@ -236,7 +242,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                   children: [
                                     Expanded(
                                       child: _StatCard(
-                                        label: 'Avg Per Fill',
+                                        label: AppLocalizations.of(
+                                          context,
+                                        )!.avgPerFill,
                                         value: viewModel.monthlyAverage
                                             .toString(),
                                         icon: Icons.trending_up,
@@ -246,7 +254,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                     SizedBox(width: 8),
                                     Expanded(
                                       child: _StatCard(
-                                        label: 'Monthly Liters',
+                                        label: AppLocalizations.of(
+                                          context,
+                                        )!.monthlyLiters,
                                         value: viewModel.monthlyTotalLiters
                                             .toString(),
                                         icon: Icons.water_drop_outlined,
@@ -272,7 +282,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                 child: Column(
                                   children: [
                                     Text(
-                                      'New refuel log',
+                                      AppLocalizations.of(
+                                        context,
+                                      )!.newRefuelLog,
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
@@ -280,21 +292,25 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                     ),
                                     SizedBox(height: 20),
                                     CustomInputField(
-                                      label: 'Fuel quantity (liter)',
+                                      label:
+                                          '${AppLocalizations.of(context)!.fuelQuantity} (${context.read<SettingsViewModel>().fuelUnit})',
                                       icon: Icons.water_drop_outlined,
                                       type: FieldType.number,
                                       controller: quantityController,
                                     ),
                                     SizedBox(height: 20),
                                     CustomInputField(
-                                      label: 'Fuel price (currency / liter)',
+                                      label:
+                                          '${AppLocalizations.of(context)!.fuelPrice} (${context.read<SettingsViewModel>().currency} / ${context.read<SettingsViewModel>().fuelUnit})',
                                       icon: Icons.price_change,
                                       type: FieldType.number,
                                       controller: priceController,
                                     ),
                                     SizedBox(height: 20),
                                     CustomInputField(
-                                      label: 'Fuel cost',
+                                      label: AppLocalizations.of(
+                                        context,
+                                      )!.fuelCost,
                                       icon: Icons.attach_money,
                                       type: FieldType.text,
                                       controller: costController,
@@ -318,7 +334,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                         children: [
                                           Icon(Icons.save),
                                           SizedBox(width: 8),
-                                          Text('Save refuel'),
+                                          Text(
+                                            AppLocalizations.of(context)!.save,
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -339,7 +357,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                   return Padding(
                                     padding: EdgeInsets.all(16.0),
                                     child: Text(
-                                      'No refuels in this month',
+                                      AppLocalizations.of(
+                                        context,
+                                      )!.noRefuelsInThisMonth,
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey,
@@ -354,7 +374,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                     Padding(
                                       padding: EdgeInsets.only(left: 16.0),
                                       child: Text(
-                                        'Refuels this month',
+                                        AppLocalizations.of(
+                                          context,
+                                        )!.refuelsThisMonth,
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
@@ -379,7 +401,7 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                               color: Colors.green,
                                             ),
                                             title: Text(
-                                              '${refuel.fuelQuantity}L x ${(refuel.fuelCost / refuel.fuelQuantity).toStringAsFixed(2)} = ${refuel.fuelCost}',
+                                              '${refuel.fuelQuantity}${context.read<SettingsViewModel>().fuelUnit} x ${(refuel.fuelCost / refuel.fuelQuantity).toStringAsFixed(2)} = ${refuel.fuelCost} ${context.read<SettingsViewModel>().currency}',
                                             ),
                                             subtitle: Text(
                                               refuel.date.toString().split(
