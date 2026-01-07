@@ -62,86 +62,97 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    elevation: 2.0,
-                    child: Column(
-                      children: [
-                        SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  Consumer<ServiceViewModel>(
+                    builder: (context, viewModel, _) {
+                      return Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        elevation: 2.0,
+                        child: Column(
                           children: [
-                            Column(
+                            SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Icon(
-                                  Icons.build_circle_outlined,
-                                  color: Colors.orange,
+                                Column(
+                                  children: [
+                                    Icon(
+                                      Icons.build_circle_outlined,
+                                      color: Colors.orange,
+                                    ),
+                                    Text(
+                                      context
+                                          .read<ServiceViewModel>()
+                                          .allServicesAndRefuelsCount
+                                          .toString(),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text('All services'),
+                                  ],
                                 ),
-                                Text(
-                                  context
-                                      .read<ServiceViewModel>()
-                                      .allServicesAndRefuelsCount
-                                      .toString(),
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                SizedBox(width: 20),
+                                Column(
+                                  children: [
+                                    Icon(
+                                      Icons.wallet,
+                                      color: Colors.lightGreen,
+                                    ),
+                                    Text(
+                                      context
+                                          .read<ServiceViewModel>()
+                                          .totalCosts
+                                          .toString(),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text('All costs'),
+                                  ],
                                 ),
-                                Text('All services'),
                               ],
+                            ),
+                            SizedBox(height: 20),
+                            ElevatedButton(
+                              onPressed: () async {
+                                final newService = await showAddServiceDialog(
+                                  context,
+                                );
+                                if (newService != null) {
+                                  context.read<ServiceViewModel>().addService(
+                                    newService,
+                                  );
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text('Service Saved'),
+                                      backgroundColor: Colors.green,
+                                      duration: Duration(seconds: 1),
+                                    ),
+                                  );
+                                }
+                              },
+                              style: ButtonStyle(
+                                backgroundColor: WidgetStateProperty.all(
+                                  Colors.orange,
+                                ),
+                              ),
+                              child: Text(
+                                '+ New service log',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
                             SizedBox(width: 20),
-                            Column(
-                              children: [
-                                Icon(Icons.wallet, color: Colors.lightGreen),
-                                Text(
-                                  context
-                                      .read<ServiceViewModel>()
-                                      .totalCosts
-                                      .toString(),
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                Text('All costs'),
-                              ],
-                            ),
                           ],
                         ),
-                        SizedBox(height: 20),
-                        ElevatedButton(
-                          onPressed: () async {
-                            final newService = await showAddServiceDialog(
-                              context,
-                            );
-                            if (newService != null) {
-                              context.read<ServiceViewModel>().addService(
-                                newService,
-                              );
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text('Service Saved'),
-                                  backgroundColor: Colors.green,
-                                  duration: Duration(seconds: 1),
-                                ),
-                              );
-                            }
-                          },
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStateProperty.all(
-                              Colors.orange,
-                            ),
-                          ),
-                          child: Text(
-                            '+ New service log',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 20),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                   SizedBox(height: 20),
                   Expanded(
