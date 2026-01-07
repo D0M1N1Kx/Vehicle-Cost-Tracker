@@ -259,7 +259,10 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
                 onPressed: _saveVehicle,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [Icon(Icons.save), Text('Save')],
+                  children: [
+                    Icon(Icons.save),
+                    Text(AppLocalizations.of(context)!.save),
+                  ],
                 ),
               ),
             ],

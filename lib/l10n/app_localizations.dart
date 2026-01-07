@@ -261,6 +261,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Chassis number (optional)'**
   String get chassisNumber;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate

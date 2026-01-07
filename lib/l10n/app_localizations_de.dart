@@ -89,4 +89,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get chassisNumber => 'Chassis number (optional)';
+
+  @override
+  String get save => 'Save';
 }

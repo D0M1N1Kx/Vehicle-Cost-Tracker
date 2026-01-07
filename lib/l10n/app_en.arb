@@ -25,5 +25,6 @@
     "year": "Year",
     "odometer": "Odometer reading",
     "licensePlate": "License plate",
-    "chassisNumber": "Chassis number (optional)"
+    "chassisNumber": "Chassis number (optional)",
+    "save": "Save"
 }
