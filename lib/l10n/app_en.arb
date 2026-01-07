@@ -16,5 +16,14 @@
     "settingsSub": "Languages, currency, units and other options",
     "currency": "$",
     "unit": "km",
-    "fuelUnit": "L"
+    "fuelUnit": "L",
+    "addVehicle": "Add Vehicle",
+    "brand": "Brand",
+    "modell": "Modell",
+    "engineType": "Engine type",
+    "color": "Color",
+    "year": "Year",
+    "odometer": "Odometer reading",
+    "licensePlate": "License plate",
+    "chassisNumber": "Chassis number (optional)"
 }

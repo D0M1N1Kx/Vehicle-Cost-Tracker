@@ -61,4 +61,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fuelUnit => 'L';
+
+  @override
+  String get addVehicle => 'Add Vehicle';
+
+  @override
+  String get brand => 'Brand';
+
+  @override
+  String get modell => 'Modell';
+
+  @override
+  String get engineType => 'Engine type';
+
+  @override
+  String get color => 'Color';
+
+  @override
+  String get year => 'Year';
+
+  @override
+  String get odometer => 'Odometer reading';
+
+  @override
+  String get licensePlate => 'License plate';
+
+  @override
+  String get chassisNumber => 'Chassis number (optional)';
 }

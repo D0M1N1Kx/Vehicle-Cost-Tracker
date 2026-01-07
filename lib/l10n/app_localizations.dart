@@ -207,6 +207,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'L'**
   String get fuelUnit;
+
+  /// No description provided for @addVehicle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Vehicle'**
+  String get addVehicle;
+
+  /// No description provided for @brand.
+  ///
+  /// In en, this message translates to:
+  /// **'Brand'**
+  String get brand;
+
+  /// No description provided for @modell.
+  ///
+  /// In en, this message translates to:
+  /// **'Modell'**
+  String get modell;
+
+  /// No description provided for @engineType.
+  ///
+  /// In en, this message translates to:
+  /// **'Engine type'**
+  String get engineType;
+
+  /// No description provided for @color.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get color;
+
+  /// No description provided for @year.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get year;
+
+  /// No description provided for @odometer.
+  ///
+  /// In en, this message translates to:
+  /// **'Odometer reading'**
+  String get odometer;
+
+  /// No description provided for @licensePlate.
+  ///
+  /// In en, this message translates to:
+  /// **'License plate'**
+  String get licensePlate;
+
+  /// No description provided for @chassisNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Chassis number (optional)'**
+  String get chassisNumber;
 }
 
 class _AppLocalizationsDelegate

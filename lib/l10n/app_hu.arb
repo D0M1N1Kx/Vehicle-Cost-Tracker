@@ -16,5 +16,6 @@
     "settingsSub": "Nyelvek, pénznem, mértékegységek és egyéb beállítások",
     "currency": "Ft",
     "unit": "km",
-    "fuelUnit": "L"
+    "fuelUnit": "L",
+    "addVehicle": "Add Vehicle"
 }

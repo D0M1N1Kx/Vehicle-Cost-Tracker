@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
+import 'package:vehicle_cost_tracker_app/l10n/app_localizations_de.dart';
 import 'package:vehicle_cost_tracker_app/models/field_type.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/widgets/custom_input_field.dart';
@@ -127,7 +129,7 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'ADD VEHICLE',
+          AppLocalizations.of(context)!.addVehicle,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -139,7 +141,7 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomInputField(
-                label: 'Brand',
+                label: AppLocalizations.of(context)!.brand,
                 icon: Icons.garage_sharp,
                 type: FieldType.dropdown,
                 dropdownItems: [
@@ -201,49 +203,49 @@ class _AddVehiclePageState extends State<AddVehiclePage> {
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Modell',
+                label: AppLocalizations.of(context)!.modell,
                 icon: Icons.star,
                 type: FieldType.text,
                 controller: modellController,
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Engine type',
+                label: AppLocalizations.of(context)!.engineType,
                 icon: Icons.directions_car,
                 type: FieldType.text,
                 controller: engineTypeController,
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Color',
+                label: AppLocalizations.of(context)!.color,
                 icon: Icons.color_lens_rounded,
                 type: FieldType.text,
                 controller: colorController,
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Year',
+                label: AppLocalizations.of(context)!.year,
                 icon: Icons.calendar_month,
                 type: FieldType.number,
                 controller: yearController,
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Odometer reading',
+                label: AppLocalizations.of(context)!.odometer,
                 icon: Icons.speed,
                 type: FieldType.number,
                 controller: odometerController,
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'License plate',
+                label: AppLocalizations.of(context)!.licensePlate,
                 icon: Icons.rectangle,
                 type: FieldType.text,
                 controller: licenseController,
               ),
               SizedBox(height: 20),
               CustomInputField(
-                label: 'Chassis number (optional)',
+                label: AppLocalizations.of(context)!.chassisNumber,
                 icon: Icons.qr_code,
                 type: FieldType.text,
                 controller: chasissController,

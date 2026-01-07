@@ -16,5 +16,6 @@
   "settingsSub": "Sprachen, Währung, Einheiten und weitere Optionen",
   "currency": "€",
   "unit": "km",
-  "fuelUnit": "L"
+  "fuelUnit": "L",
+  "addVehicle": "Add Vehicle"
 }
