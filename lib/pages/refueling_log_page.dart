@@ -215,8 +215,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                         label: AppLocalizations.of(
                                           context,
                                         )!.monthlyCost,
-                                        value: viewModel.monthlyTotalCost
-                                            .toString(),
+                                        value:
+                                            '${viewModel.monthlyTotalCost} ${context.read<SettingsViewModel>().currency}'
+                                                .toString(),
                                         icon: Icons.calendar_month,
                                         color: Colors.blue,
                                       ),
@@ -227,8 +228,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                         label: AppLocalizations.of(
                                           context,
                                         )!.totalCost,
-                                        value: viewModel.totalCostAllTime
-                                            .toString(),
+                                        value:
+                                            '${viewModel.totalCostAllTime} ${context.read<SettingsViewModel>().currency}'
+                                                .toString(),
                                         icon: Icons.wallet,
                                         color: Colors.green,
                                       ),
@@ -245,8 +247,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                         label: AppLocalizations.of(
                                           context,
                                         )!.avgPerFill,
-                                        value: viewModel.monthlyAverage
-                                            .toString(),
+                                        value:
+                                            '${viewModel.monthlyAverage} ${context.read<SettingsViewModel>().currency}'
+                                                .toString(),
                                         icon: Icons.trending_up,
                                         color: Colors.orange,
                                       ),
@@ -257,8 +260,9 @@ class _RefuelingLogPageState extends State<RefuelingLogPage> {
                                         label: AppLocalizations.of(
                                           context,
                                         )!.monthlyLiters,
-                                        value: viewModel.monthlyTotalLiters
-                                            .toString(),
+                                        value:
+                                            '${viewModel.monthlyTotalLiters} ${context.read<SettingsViewModel>().fuelUnit}'
+                                                .toString(),
                                         icon: Icons.water_drop_outlined,
                                         color: Colors.cyan,
                                       ),
