@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
-import 'package:vehicle_cost_tracker_app/l10n/app_localizations_en.dart';
+import 'package:vehicle_cost_tracker_app/models/maintenance_reminder.dart';
 import 'package:vehicle_cost_tracker_app/pages/garage_page.dart';
+import 'package:vehicle_cost_tracker_app/pages/maintenance_reminder_page.dart';
 import 'package:vehicle_cost_tracker_app/pages/refueling_log_page.dart';
 import 'package:vehicle_cost_tracker_app/pages/service_log_page.dart';
 import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
@@ -39,7 +40,45 @@ class MainPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ButtonCard(
-              onTap: () {},
+              onTap: () async {
+                final repo = VehicleRepository();
+                await repo.load();
+                final List<Vehicle> vehicles = repo.getVehicles();
+
+                if (vehicles.isEmpty) {
+                  _showErrorSnackbar(
+                    context,
+                    AppLocalizations.of(context)!.noVehFound,
+                  );
+                  return;
+                }
+
+                if (vehicles.length == 1) {
+                  if (context.mounted) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            MaintenanceReminderPage(vehicle: vehicles.first),
+                      ),
+                    );
+                  }
+                  return;
+                }
+
+                final Vehicle? selected = await showVehicleSelector(
+                  context,
+                  vehicles,
+                );
+
+                if (selected != null && context.mounted) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MaintenanceReminderPage(vehicle: selected),
+                    ),
+                  );
+                }
+              },
               icon: Icons.notifications_active,
               iconColor: Colors.yellow,
               title: AppLocalizations.of(context)!.maintenanceReminder,

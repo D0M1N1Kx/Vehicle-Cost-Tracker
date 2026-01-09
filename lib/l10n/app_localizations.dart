@@ -553,6 +553,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Quick presets'**
   String get quickPresets;
+
+  /// No description provided for @noServices.
+  ///
+  /// In en, this message translates to:
+  /// **'No services have been recorded yet'**
+  String get noServices;
+
+  /// No description provided for @maintenanceSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance Schedule'**
+  String get maintenanceSchedule;
+
+  /// No description provided for @overdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue'**
+  String get overdue;
+
+  /// No description provided for @upcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get upcoming;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// No description provided for @last.
+  ///
+  /// In en, this message translates to:
+  /// **'Last'**
+  String get last;
+
+  /// No description provided for @remaining.
+  ///
+  /// In en, this message translates to:
+  /// **'remaining'**
+  String get remaining;
+
+  /// No description provided for @nextAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Next at'**
+  String get nextAt;
+
+  /// No description provided for @daysRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'days remaining'**
+  String get daysRemaining;
+
+  /// No description provided for @every.
+  ///
+  /// In en, this message translates to:
+  /// **'Every'**
+  String get every;
 }
 
 class _AppLocalizationsDelegate

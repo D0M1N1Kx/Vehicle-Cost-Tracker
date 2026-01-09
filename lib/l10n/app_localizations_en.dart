@@ -233,4 +233,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get quickPresets => 'Quick presets';
+
+  @override
+  String get noServices => 'No services have been recorded yet';
+
+  @override
+  String get maintenanceSchedule => 'Maintenance Schedule';
+
+  @override
+  String get overdue => 'Overdue';
+
+  @override
+  String get upcoming => 'Upcoming';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get last => 'Last';
+
+  @override
+  String get remaining => 'remaining';
+
+  @override
+  String get nextAt => 'Next at';
+
+  @override
+  String get daysRemaining => 'days remaining';
+
+  @override
+  String get every => 'Every';
 }

@@ -73,5 +73,15 @@
     "fuelUnitLabel": "Fuel unit",
     "liters": "liters",
     "gallons": "gallons",
-    "quickPresets": "Quick presets"
+    "quickPresets": "Quick presets",
+    "noServices": "No services have been recorded yet",
+    "maintenanceSchedule": "Maintenance Schedule",
+    "overdue": "Overdue",
+    "upcoming": "Upcoming",
+    "ok": "OK",
+    "last": "Last",
+    "remaining": "remaining",
+    "nextAt": "Next at",
+    "daysRemaining": "days remaining",
+    "every": "Every"
 }
