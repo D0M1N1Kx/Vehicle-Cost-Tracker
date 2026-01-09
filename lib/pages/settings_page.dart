@@ -37,6 +37,7 @@ class SettingsPage extends StatelessWidget {
                       DropdownMenuItem(child: Text('Magyar'), value: 'hu'),
                       DropdownMenuItem(child: Text('Deutsch'), value: 'de'),
                       DropdownMenuItem(child: Text('Srbija'), value: 'sr'),
+                      DropdownMenuItem(child: Text('Русский'), value: 'ru'),
                     ],
                     onChanged: (value) {
                       if (value != null) {
@@ -63,6 +64,7 @@ class SettingsPage extends StatelessWidget {
                       DropdownMenuItem(child: Text('HUF (Ft)'), value: 'Ft'),
                       DropdownMenuItem(child: Text('GBP (£)'), value: '£'),
                       DropdownMenuItem(child: Text('RSD (din)'), value: 'din'),
+                      DropdownMenuItem(child: Text('RUB (₽)'), value: '₽'),
                     ],
                     onChanged: (value) {
                       if (value != null) {
@@ -148,26 +150,27 @@ class SettingsPage extends StatelessWidget {
               Wrap(
                 spacing: 8.0,
                 runSpacing: 8.0,
-                children: ['Hungary', 'USA', 'Germany', 'UK', 'Srbija']
-                    .map(
-                      (country) => ElevatedButton(
-                        onPressed: () {
-                          settingsVM.setCountryPreset(country);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('$country settings applied'),
-                              duration: Duration(seconds: 1),
+                children:
+                    ['Hungary', 'USA', 'Germany', 'UK', 'Srbija', 'Русский']
+                        .map(
+                          (country) => ElevatedButton(
+                            onPressed: () {
+                              settingsVM.setCountryPreset(country);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('$country settings applied'),
+                                  duration: Duration(seconds: 1),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              foregroundColor: Colors.white,
                             ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white,
-                        ),
-                        child: Text(country),
-                      ),
-                    )
-                    .toList(),
+                            child: Text(country),
+                          ),
+                        )
+                        .toList(),
               ),
             ],
           );

@@ -34,6 +34,7 @@ class MainApp extends StatelessWidget {
                 Locale('hu'),
                 Locale('de'),
                 Locale('sr'),
+                Locale('ru'),
               ],
               darkTheme: ThemeData(
                 colorScheme: ColorScheme.fromSeed(
