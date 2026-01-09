@@ -240,32 +240,41 @@ class AppLocalizationsHu extends AppLocalizations {
   String get quickPresets => 'Gyors beállítások';
 
   @override
-  String get noServices => 'No services have been recorded yet';
+  String get noServices => 'Még nem lett szerviz rögzítve';
 
   @override
-  String get maintenanceSchedule => 'Maintenance Schedule';
+  String get maintenanceSchedule => 'Karbantartási ütemezés';
 
   @override
-  String get overdue => 'Overdue';
+  String get overdue => 'Lejárt';
 
   @override
-  String get upcoming => 'Upcoming';
+  String get upcoming => 'Közelgő';
 
   @override
   String get ok => 'OK';
 
   @override
-  String get last => 'Last';
+  String get last => 'Utolsó';
 
   @override
-  String get remaining => 'remaining';
+  String get remaining => 'maradt';
 
   @override
-  String get nextAt => 'Next at';
+  String get nextAt => 'Következő';
 
   @override
-  String get daysRemaining => 'days remaining';
+  String get daysRemaining => 'nap maradt';
 
   @override
-  String get every => 'Every';
+  String get every => 'Minden';
+
+  @override
+  String get kmErr => 'Kérjük adja meg az aktuális km-t';
+
+  @override
+  String get kmErrValid => 'A km-nek érvényes szám kell lennie';
+
+  @override
+  String get current => 'Aktuális';
 }

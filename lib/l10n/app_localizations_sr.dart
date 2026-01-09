@@ -235,32 +235,41 @@ class AppLocalizationsSr extends AppLocalizations {
   String get quickPresets => 'Brze presets';
 
   @override
-  String get noServices => 'No services have been recorded yet';
+  String get noServices => 'Nema zabeleženih servisa';
 
   @override
-  String get maintenanceSchedule => 'Maintenance Schedule';
+  String get maintenanceSchedule => 'Raspored održavanja';
 
   @override
-  String get overdue => 'Overdue';
+  String get overdue => 'Isteklo';
 
   @override
-  String get upcoming => 'Upcoming';
+  String get upcoming => 'Predstoji';
 
   @override
   String get ok => 'OK';
 
   @override
-  String get last => 'Last';
+  String get last => 'Poslednja';
 
   @override
-  String get remaining => 'remaining';
+  String get remaining => 'preostaje';
 
   @override
-  String get nextAt => 'Next at';
+  String get nextAt => 'Sledeće';
 
   @override
-  String get daysRemaining => 'days remaining';
+  String get daysRemaining => 'dana preostaje';
 
   @override
-  String get every => 'Every';
+  String get every => 'Svakih';
+
+  @override
+  String get kmErr => 'Molimo unesite trenutni km';
+
+  @override
+  String get kmErrValid => 'Km mora biti validan broj';
+
+  @override
+  String get current => 'Trenutni';
 }

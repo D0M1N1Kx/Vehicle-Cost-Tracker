@@ -613,6 +613,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Every'**
   String get every;
+
+  /// No description provided for @kmErr.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the current km'**
+  String get kmErr;
+
+  /// No description provided for @kmErrValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Km must be a valid number'**
+  String get kmErrValid;
+
+  /// No description provided for @current.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get current;
 }
 
 class _AppLocalizationsDelegate

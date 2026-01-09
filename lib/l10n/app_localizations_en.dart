@@ -263,4 +263,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get every => 'Every';
+
+  @override
+  String get kmErr => 'Please enter the current km';
+
+  @override
+  String get kmErrValid => 'Km must be a valid number';
+
+  @override
+  String get current => 'Current';
 }

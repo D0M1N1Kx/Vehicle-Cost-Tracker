@@ -75,5 +75,18 @@
     "fuelUnitLabel": "Üzemanyag mértékegység",
     "liters": "Liter",
     "gallons": "Gallon",
-    "quickPresets": "Gyors beállítások"
+    "quickPresets": "Gyors beállítások",
+    "noServices": "Még nem lett szerviz rögzítve",
+    "maintenanceSchedule": "Karbantartási ütemezés",
+    "overdue": "Lejárt",
+    "upcoming": "Közelgő",
+    "ok": "OK",
+    "last": "Utolsó",
+    "remaining": "maradt",
+    "nextAt": "Következő",
+    "daysRemaining": "nap maradt",
+    "every": "Minden",
+    "kmErr": "Kérjük adja meg az aktuális km-t",
+    "kmErrValid": "A km-nek érvényes szám kell lennie",
+    "current": "Aktuális"
 }

@@ -37,12 +37,14 @@ class MaintenanceReminderViewModel extends ChangeNotifier {
       final lastService = _getLastServiceOfType(serviceType);
 
       if (lastService != null) {
+        final kmAtService = lastService.kmAtService ?? vehicle.km;
+
         reminders.add(
           MaintenanceReminder(
             serviceType: serviceType.toString().split('.').last,
             recommendedIntervalKm: interval.$1,
             recommendedIntervalDays: interval.$2,
-            lastServiceKm: 0,
+            lastServiceKm: kmAtService,
             lastServiceDate: lastService.date,
             currentKm: vehicle.km,
             currentDate: DateTime.now(),

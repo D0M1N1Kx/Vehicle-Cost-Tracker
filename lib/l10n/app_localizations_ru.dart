@@ -238,32 +238,41 @@ class AppLocalizationsRu extends AppLocalizations {
   String get quickPresets => 'Быстрые предустановки';
 
   @override
-  String get noServices => 'No services have been recorded yet';
+  String get noServices => 'Обслуживание еще не записано';
 
   @override
-  String get maintenanceSchedule => 'Maintenance Schedule';
+  String get maintenanceSchedule => 'График обслуживания';
 
   @override
-  String get overdue => 'Overdue';
+  String get overdue => 'Просрочено';
 
   @override
-  String get upcoming => 'Upcoming';
+  String get upcoming => 'Предстоящее';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'ОК';
 
   @override
-  String get last => 'Last';
+  String get last => 'Последнее';
 
   @override
-  String get remaining => 'remaining';
+  String get remaining => 'осталось';
 
   @override
-  String get nextAt => 'Next at';
+  String get nextAt => 'Следующее';
 
   @override
-  String get daysRemaining => 'days remaining';
+  String get daysRemaining => 'дней осталось';
 
   @override
-  String get every => 'Every';
+  String get every => 'Каждые';
+
+  @override
+  String get kmErr => 'Пожалуйста, введите текущий км';
+
+  @override
+  String get kmErrValid => 'Км должен быть действительным числом';
+
+  @override
+  String get current => 'Текущий';
 }

@@ -73,5 +73,18 @@
     "fuelUnitLabel": "Jedinica goriva",
     "liters": "litri",
     "gallons": "galoni",
-    "quickPresets": "Brze presets"
+    "quickPresets": "Brze presets",
+    "noServices": "Nema zabeleženih servisa",
+    "maintenanceSchedule": "Raspored održavanja",
+    "overdue": "Isteklo",
+    "upcoming": "Predstoji",
+    "ok": "OK",
+    "last": "Poslednja",
+    "remaining": "preostaje",
+    "nextAt": "Sledeće",
+    "daysRemaining": "dana preostaje",
+    "every": "Svakih",
+    "kmErr": "Molimo unesite trenutni km",
+    "kmErrValid": "Km mora biti validan broj",
+    "current": "Trenutni"
 }

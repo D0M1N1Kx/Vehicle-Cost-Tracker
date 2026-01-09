@@ -83,5 +83,8 @@
     "remaining": "remaining",
     "nextAt": "Next at",
     "daysRemaining": "days remaining",
-    "every": "Every"
+    "every": "Every",
+    "kmErr": "Please enter the current km",
+    "kmErrValid": "Km must be a valid number",
+    "current": "Current"
 }

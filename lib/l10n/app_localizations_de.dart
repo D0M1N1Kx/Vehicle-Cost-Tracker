@@ -237,32 +237,41 @@ class AppLocalizationsDe extends AppLocalizations {
   String get quickPresets => 'Schnelleinstellungen';
 
   @override
-  String get noServices => 'No services have been recorded yet';
+  String get noServices => 'Keine Wartungen wurden noch erfasst';
 
   @override
-  String get maintenanceSchedule => 'Maintenance Schedule';
+  String get maintenanceSchedule => 'Wartungsplan';
 
   @override
-  String get overdue => 'Overdue';
+  String get overdue => 'Überfällig';
 
   @override
-  String get upcoming => 'Upcoming';
+  String get upcoming => 'Anstehend';
 
   @override
   String get ok => 'OK';
 
   @override
-  String get last => 'Last';
+  String get last => 'Letzte';
 
   @override
-  String get remaining => 'remaining';
+  String get remaining => 'verbleibend';
 
   @override
-  String get nextAt => 'Next at';
+  String get nextAt => 'Nächste bei';
 
   @override
-  String get daysRemaining => 'days remaining';
+  String get daysRemaining => 'Tage verbleibend';
 
   @override
-  String get every => 'Every';
+  String get every => 'Alle';
+
+  @override
+  String get kmErr => 'Bitte geben Sie die aktuelle km ein';
+
+  @override
+  String get kmErrValid => 'Km muss eine gültige Zahl sein';
+
+  @override
+  String get current => 'Aktuell';
 }
