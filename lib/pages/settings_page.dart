@@ -36,6 +36,7 @@ class SettingsPage extends StatelessWidget {
                       DropdownMenuItem(child: Text('English'), value: 'en'),
                       DropdownMenuItem(child: Text('Magyar'), value: 'hu'),
                       DropdownMenuItem(child: Text('Deutsch'), value: 'de'),
+                      DropdownMenuItem(child: Text('Srbija'), value: 'sr'),
                     ],
                     onChanged: (value) {
                       if (value != null) {
@@ -61,6 +62,7 @@ class SettingsPage extends StatelessWidget {
                       DropdownMenuItem(child: Text('EUR (\€)'), value: '€'),
                       DropdownMenuItem(child: Text('HUF (Ft)'), value: 'Ft'),
                       DropdownMenuItem(child: Text('GBP (£)'), value: '£'),
+                      DropdownMenuItem(child: Text('RSD (din)'), value: 'din'),
                     ],
                     onChanged: (value) {
                       if (value != null) {
@@ -146,7 +148,7 @@ class SettingsPage extends StatelessWidget {
               Wrap(
                 spacing: 8.0,
                 runSpacing: 8.0,
-                children: ['Hungary', 'USA', 'Germany', 'UK']
+                children: ['Hungary', 'USA', 'Germany', 'UK', 'Srbija']
                     .map(
                       (country) => ElevatedButton(
                         onPressed: () {

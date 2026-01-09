@@ -29,7 +29,12 @@ class MainApp extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
               ],
-              supportedLocales: [Locale('en'), Locale('hu'), Locale('de')],
+              supportedLocales: [
+                Locale('en'),
+                Locale('hu'),
+                Locale('de'),
+                Locale('sr'),
+              ],
               darkTheme: ThemeData(
                 colorScheme: ColorScheme.fromSeed(
                   seedColor: Colors.blueAccent,

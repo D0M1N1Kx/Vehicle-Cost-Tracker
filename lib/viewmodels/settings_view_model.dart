@@ -66,6 +66,11 @@ class SettingsViewModel extends ChangeNotifier {
         setDistanceUnit('mi');
         setFuelUnit('gal');
         break;
+      case 'Srbija':
+        setLocale('sr');
+        setCurrency('din');
+        setDistanceUnit('km');
+        setFuelUnit('L');
     }
   }
 }
