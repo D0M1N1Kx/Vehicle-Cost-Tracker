@@ -4,8 +4,14 @@ class Service {
   final ServiceType type;
   final int cost;
   final DateTime date;
+  final int? kmAtService;
 
-  Service({required this.type, required this.cost, required this.date});
+  Service({
+    required this.type,
+    required this.cost,
+    required this.date,
+    this.kmAtService,
+  });
 
   factory Service.fromJson(Map<String, dynamic> json) => Service(
     type: ServiceType.values.firstWhere(
@@ -14,11 +20,13 @@ class Service {
     ),
     cost: json['cost'],
     date: DateTime.parse(json['date'] as String),
+    kmAtService: json['kmAtService'] as int?,
   );
 
   Map<String, dynamic> toJson() => {
     'type': type.toString().split('.').last,
     'cost': cost,
     'date': date.toIso8601String(),
+    'kmAtService': kmAtService,
   };
 }
