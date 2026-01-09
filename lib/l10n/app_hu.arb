@@ -68,5 +68,12 @@
     "addService": "Szerviz hozzáadása",
     "emptyGarage": "A garazsad még üres",
     "addANewVehicle": "Adj a garazsadhoz új autót, hogy elkezdhess naplót vezetni!",
-    "selectVehicle": "Válassz autót"
+    "selectVehicle": "Válassz autót",
+    "language": "Nyelv",
+    "currencyLabel": "Pénznem",
+    "distanceUnit": "Távolsági mértékegység",
+    "fuelUnitLabel": "Üzemanyag mértékegység",
+    "liters": "Liter",
+    "gallons": "Gallon",
+    "quickPresets": "Gyors beállítások"
 }

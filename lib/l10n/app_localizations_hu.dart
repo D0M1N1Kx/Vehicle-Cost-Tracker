@@ -213,13 +213,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get selectVehicle => 'Válassz autót';
 
   @override
-  String get language => 'Language';
+  String get language => 'Nyelv';
 
   @override
-  String get currencyLabel => 'Currency';
+  String get currencyLabel => 'Pénznem';
 
   @override
-  String get distanceUnit => 'Distance unit';
+  String get distanceUnit => 'Távolsági mértékegység';
 
   @override
   String get kilometers => 'Kilométer';
@@ -228,7 +228,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get miles => 'Mérföld';
 
   @override
-  String get fuelUnitLabel => 'Fuel unit';
+  String get fuelUnitLabel => 'Üzemanyag mértékegység';
 
   @override
   String get liters => 'Liter';
@@ -237,5 +237,5 @@ class AppLocalizationsHu extends AppLocalizations {
   String get gallons => 'Gallon';
 
   @override
-  String get quickPresets => 'Quick presets';
+  String get quickPresets => 'Gyors beállítások';
 }
