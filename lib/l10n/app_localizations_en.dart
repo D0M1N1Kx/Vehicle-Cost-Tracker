@@ -272,4 +272,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get current => 'Current';
+
+  @override
+  String get oilChange => 'Oil Change';
+
+  @override
+  String get airFilter => 'Air Filter';
+
+  @override
+  String get pollenFilter => 'Pollen Filter';
+
+  @override
+  String get fuelFilter => 'Fuel Filter';
+
+  @override
+  String get sparkPlug => 'Spark Plug';
+
+  @override
+  String get brakePadFront => 'Brake Pad Front';
+
+  @override
+  String get brakePadRear => 'Brake Pad Rear';
+
+  @override
+  String get brakeFluid => 'Brake Fluid';
+
+  @override
+  String get coolant => 'Coolant';
+
+  @override
+  String get clutch => 'Clutch';
+
+  @override
+  String get controlBelt => 'Control Belt';
+
+  @override
+  String get technicalExam => 'Technical Exam';
+
+  @override
+  String get unique => 'Unique';
 }

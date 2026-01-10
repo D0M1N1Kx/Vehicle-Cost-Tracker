@@ -38,7 +38,7 @@ class ServiceViewModel extends ChangeNotifier {
         'type': 'service',
         'icon': Icons.build_circle_outlined,
         'color': Colors.orange,
-        'title': service.type.toString().split('.').last,
+        'serviceType': service.type,
         'date': service.date,
         'cost': service.cost,
       });

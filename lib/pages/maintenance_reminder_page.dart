@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
+import 'package:vehicle_cost_tracker_app/models/service_type.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/viewmodels/maintenance_reminder_view_model.dart';
 import 'package:vehicle_cost_tracker_app/viewmodels/settings_view_model.dart';
@@ -200,7 +201,14 @@ class _ReminderCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        reminder.serviceType,
+                        ServiceType.values
+                            .firstWhere(
+                              (e) =>
+                                  e.toString().split('.').last ==
+                                  reminder.serviceType,
+                              orElse: () => ServiceType.Unique,
+                            )
+                            .toLocalizedString(AppLocalizations.of(context)!),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

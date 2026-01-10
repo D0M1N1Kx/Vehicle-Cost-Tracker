@@ -86,5 +86,18 @@
     "every": "Every",
     "kmErr": "Please enter the current km",
     "kmErrValid": "Km must be a valid number",
-    "current": "Current"
+    "current": "Current",
+    "oilChange": "Oil Change",
+    "airFilter": "Air Filter",
+    "pollenFilter": "Pollen Filter",
+    "fuelFilter": "Fuel Filter",
+    "sparkPlug": "Spark Plug",
+    "brakePadFront": "Brake Pad Front",
+    "brakePadRear": "Brake Pad Rear",
+    "brakeFluid": "Brake Fluid",
+    "coolant": "Coolant",
+    "clutch": "Clutch",
+    "controlBelt": "Control Belt",
+    "technicalExam": "Technical Exam",
+    "unique": "Unique"
 }

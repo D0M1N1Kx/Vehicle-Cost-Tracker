@@ -6,10 +6,8 @@ import 'package:vehicle_cost_tracker_app/viewmodels/service_view_model.dart';
 import 'package:vehicle_cost_tracker_app/viewmodels/settings_view_model.dart';
 import 'package:vehicle_cost_tracker_app/widgets/add_service_dialog.dart';
 import 'package:vehicle_cost_tracker_app/widgets/service_list_tile.dart';
+import 'package:vehicle_cost_tracker_app/models/service_type.dart';
 import 'package:intl/intl.dart';
-
-import '../models/refuel.dart';
-import '../models/service.dart';
 
 class ServiceLogPage extends StatefulWidget {
   final Vehicle vehicle;
@@ -182,7 +180,10 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                             final isRefuel = item['type'] == 'refuel';
                             final titleText = isRefuel
                                 ? '${item['fuelQuantity']} ${context.read<SettingsViewModel>().fuelUnit} × ${item['unitPrice'].toString()} ${context.read<SettingsViewModel>().currency}'
-                                : item['title'];
+                                : (item['serviceType'] as ServiceType)
+                                      .toLocalizedString(
+                                        AppLocalizations.of(context)!,
+                                      );
 
                             return ServiceListTile(
                               icon: item['icon'],

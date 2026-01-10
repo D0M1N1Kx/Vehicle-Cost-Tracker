@@ -277,4 +277,43 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get current => 'Aktuális';
+
+  @override
+  String get oilChange => 'Olajcsere';
+
+  @override
+  String get airFilter => 'Légszűrő';
+
+  @override
+  String get pollenFilter => 'Pollenszűrő';
+
+  @override
+  String get fuelFilter => 'Üzemanyag szűrő';
+
+  @override
+  String get sparkPlug => 'Gyertya';
+
+  @override
+  String get brakePadFront => 'Fékbetét Elő';
+
+  @override
+  String get brakePadRear => 'Fékbetét Hátsó';
+
+  @override
+  String get brakeFluid => 'Fékfolyadék';
+
+  @override
+  String get coolant => 'Hűtőfolyadék';
+
+  @override
+  String get clutch => 'Kuplungbetét';
+
+  @override
+  String get controlBelt => 'Szíj';
+
+  @override
+  String get technicalExam => 'Műszaki vizsga';
+
+  @override
+  String get unique => 'Egyéb';
 }

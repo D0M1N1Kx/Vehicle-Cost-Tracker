@@ -86,5 +86,18 @@
     "every": "Svakih",
     "kmErr": "Molimo unesite trenutni km",
     "kmErrValid": "Km mora biti validan broj",
-    "current": "Trenutni"
+    "current": "Trenutni",
+    "oilChange": "Zamena ulja",
+    "airFilter": "Vazdušni filter",
+    "pollenFilter": "Poljenski filter",
+    "fuelFilter": "Filter goriva",
+    "sparkPlug": "Svećica",
+    "brakePadFront": "Kočiona pločica Prednja",
+    "brakePadRear": "Kočiona pločica Zadnja",
+    "brakeFluid": "Kočiono ulje",
+    "coolant": "Rashladna tečnost",
+    "clutch": "Kvačilo",
+    "controlBelt": "Remen alternator",
+    "technicalExam": "Tehnički pregled",
+    "unique": "Ostalo"
 }

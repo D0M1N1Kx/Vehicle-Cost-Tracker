@@ -631,6 +631,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Current'**
   String get current;
+
+  /// No description provided for @oilChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Oil Change'**
+  String get oilChange;
+
+  /// No description provided for @airFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Air Filter'**
+  String get airFilter;
+
+  /// No description provided for @pollenFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Pollen Filter'**
+  String get pollenFilter;
+
+  /// No description provided for @fuelFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel Filter'**
+  String get fuelFilter;
+
+  /// No description provided for @sparkPlug.
+  ///
+  /// In en, this message translates to:
+  /// **'Spark Plug'**
+  String get sparkPlug;
+
+  /// No description provided for @brakePadFront.
+  ///
+  /// In en, this message translates to:
+  /// **'Brake Pad Front'**
+  String get brakePadFront;
+
+  /// No description provided for @brakePadRear.
+  ///
+  /// In en, this message translates to:
+  /// **'Brake Pad Rear'**
+  String get brakePadRear;
+
+  /// No description provided for @brakeFluid.
+  ///
+  /// In en, this message translates to:
+  /// **'Brake Fluid'**
+  String get brakeFluid;
+
+  /// No description provided for @coolant.
+  ///
+  /// In en, this message translates to:
+  /// **'Coolant'**
+  String get coolant;
+
+  /// No description provided for @clutch.
+  ///
+  /// In en, this message translates to:
+  /// **'Clutch'**
+  String get clutch;
+
+  /// No description provided for @controlBelt.
+  ///
+  /// In en, this message translates to:
+  /// **'Control Belt'**
+  String get controlBelt;
+
+  /// No description provided for @technicalExam.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical Exam'**
+  String get technicalExam;
+
+  /// No description provided for @unique.
+  ///
+  /// In en, this message translates to:
+  /// **'Unique'**
+  String get unique;
 }
 
 class _AppLocalizationsDelegate

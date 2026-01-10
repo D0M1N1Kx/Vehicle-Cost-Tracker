@@ -88,5 +88,18 @@
     "every": "Minden",
     "kmErr": "Kérjük adja meg az aktuális km-t",
     "kmErrValid": "A km-nek érvényes szám kell lennie",
-    "current": "Aktuális"
+    "current": "Aktuális",
+    "oilChange": "Olajcsere",
+    "airFilter": "Légszűrő",
+    "pollenFilter": "Pollenszűrő",
+    "fuelFilter": "Üzemanyag szűrő",
+    "sparkPlug": "Gyertya",
+    "brakePadFront": "Fékbetét Elő",
+    "brakePadRear": "Fékbetét Hátsó",
+    "brakeFluid": "Fékfolyadék",
+    "coolant": "Hűtőfolyadék",
+    "clutch": "Kuplungbetét",
+    "controlBelt": "Szíj",
+    "technicalExam": "Műszaki vizsga",
+    "unique": "Egyéb"
 }

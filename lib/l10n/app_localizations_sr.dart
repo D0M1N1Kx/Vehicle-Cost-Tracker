@@ -272,4 +272,43 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get current => 'Trenutni';
+
+  @override
+  String get oilChange => 'Zamena ulja';
+
+  @override
+  String get airFilter => 'Vazdušni filter';
+
+  @override
+  String get pollenFilter => 'Poljenski filter';
+
+  @override
+  String get fuelFilter => 'Filter goriva';
+
+  @override
+  String get sparkPlug => 'Svećica';
+
+  @override
+  String get brakePadFront => 'Kočiona pločica Prednja';
+
+  @override
+  String get brakePadRear => 'Kočiona pločica Zadnja';
+
+  @override
+  String get brakeFluid => 'Kočiono ulje';
+
+  @override
+  String get coolant => 'Rashladna tečnost';
+
+  @override
+  String get clutch => 'Kvačilo';
+
+  @override
+  String get controlBelt => 'Remen alternator';
+
+  @override
+  String get technicalExam => 'Tehnički pregled';
+
+  @override
+  String get unique => 'Ostalo';
 }

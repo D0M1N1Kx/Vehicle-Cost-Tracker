@@ -274,4 +274,43 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get current => 'Aktuell';
+
+  @override
+  String get oilChange => 'Ölwechsel';
+
+  @override
+  String get airFilter => 'Luftfilter';
+
+  @override
+  String get pollenFilter => 'Pollenfilter';
+
+  @override
+  String get fuelFilter => 'Kraftstofffilter';
+
+  @override
+  String get sparkPlug => 'Zündkerze';
+
+  @override
+  String get brakePadFront => 'Bremsbeläge Vorne';
+
+  @override
+  String get brakePadRear => 'Bremsbeläge Hinten';
+
+  @override
+  String get brakeFluid => 'Bremsflüssigkeit';
+
+  @override
+  String get coolant => 'Kühlmittel';
+
+  @override
+  String get clutch => 'Kupplung';
+
+  @override
+  String get controlBelt => 'Keilriemen';
+
+  @override
+  String get technicalExam => 'Hauptuntersuchung';
+
+  @override
+  String get unique => 'Sonstiges';
 }

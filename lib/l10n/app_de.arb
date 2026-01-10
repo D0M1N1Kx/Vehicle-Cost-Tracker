@@ -98,5 +98,18 @@
   "every": "Alle",
   "kmErr": "Bitte geben Sie die aktuelle km ein",
   "kmErrValid": "Km muss eine gültige Zahl sein",
-  "current": "Aktuell"
+  "current": "Aktuell",
+  "oilChange": "Ölwechsel",
+  "airFilter": "Luftfilter",
+  "pollenFilter": "Pollenfilter",
+  "fuelFilter": "Kraftstofffilter",
+  "sparkPlug": "Zündkerze",
+  "brakePadFront": "Bremsbeläge Vorne",
+  "brakePadRear": "Bremsbeläge Hinten",
+  "brakeFluid": "Bremsflüssigkeit",
+  "coolant": "Kühlmittel",
+  "clutch": "Kupplung",
+  "controlBelt": "Keilriemen",
+  "technicalExam": "Hauptuntersuchung",
+  "unique": "Sonstiges"
 }

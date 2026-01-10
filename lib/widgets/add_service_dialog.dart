@@ -107,7 +107,9 @@ class _AddServiceDialogState extends State<_AddServiceDialog> {
                   .map(
                     (type) => DropdownMenuItem(
                       value: type,
-                      child: Text(type.toString().split('.').last),
+                      child: Text(
+                        type.toLocalizedString(AppLocalizations.of(context)!),
+                      ),
                     ),
                   )
                   .toList(),

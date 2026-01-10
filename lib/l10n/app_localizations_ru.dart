@@ -275,4 +275,43 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get current => 'Текущий';
+
+  @override
+  String get oilChange => 'Замена масла';
+
+  @override
+  String get airFilter => 'Воздушный фильтр';
+
+  @override
+  String get pollenFilter => 'Салонный фильтр';
+
+  @override
+  String get fuelFilter => 'Топливный фильтр';
+
+  @override
+  String get sparkPlug => 'Свеча зажигания';
+
+  @override
+  String get brakePadFront => 'Тормозные колодки спереди';
+
+  @override
+  String get brakePadRear => 'Тормозные колодки сзади';
+
+  @override
+  String get brakeFluid => 'Тормозная жидкость';
+
+  @override
+  String get coolant => 'Охлаждающая жидкость';
+
+  @override
+  String get clutch => 'Сцепление';
+
+  @override
+  String get controlBelt => 'Ремень привода';
+
+  @override
+  String get technicalExam => 'Техническое ТО';
+
+  @override
+  String get unique => 'Прочее';
 }
