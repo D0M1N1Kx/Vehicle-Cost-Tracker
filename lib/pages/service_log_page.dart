@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/viewmodels/service_view_model.dart';
+import 'package:vehicle_cost_tracker_app/viewmodels/settings_view_model.dart';
 import 'package:vehicle_cost_tracker_app/widgets/add_service_dialog.dart';
 import 'package:vehicle_cost_tracker_app/widgets/service_list_tile.dart';
 import 'package:intl/intl.dart';
@@ -105,10 +106,7 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                                       color: Colors.lightGreen,
                                     ),
                                     Text(
-                                      context
-                                          .read<ServiceViewModel>()
-                                          .totalCosts
-                                          .toString(),
+                                      '${context.read<ServiceViewModel>().totalCosts.toString()} ${context.read<SettingsViewModel>().currency}',
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
