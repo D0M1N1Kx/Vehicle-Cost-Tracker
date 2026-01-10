@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/pages/edit_vehicle_page.dart';
+import 'package:vehicle_cost_tracker_app/pages/refueling_log_page.dart';
+import 'package:vehicle_cost_tracker_app/pages/service_log_page.dart';
 import 'package:vehicle_cost_tracker_app/widgets/button_card.dart';
 
 class VehicleDetailPage extends StatelessWidget {
@@ -226,7 +228,13 @@ class VehicleDetailPage extends StatelessWidget {
               const SizedBox(height: 24),
               // Quick Action Cards
               ButtonCard(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => RefuelingLogPage(car: vehicle),
+                    ),
+                  );
+                },
                 icon: Icons.local_gas_station_rounded,
                 iconColor: Colors.green,
                 title: AppLocalizations.of(context)!.refuelingLog,
@@ -234,7 +242,13 @@ class VehicleDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               ButtonCard(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ServiceLogPage(vehicle: vehicle),
+                    ),
+                  );
+                },
                 icon: Icons.edit_document,
                 iconColor: Colors.blue,
                 title: AppLocalizations.of(context)!.serviceLog,
