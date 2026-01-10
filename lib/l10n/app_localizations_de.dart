@@ -313,4 +313,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unique => 'Sonstiges';
+
+  @override
+  String get vehDetails => 'Fahrzeugdetails';
 }

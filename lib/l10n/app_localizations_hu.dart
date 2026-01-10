@@ -316,4 +316,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get unique => 'Egyéb';
+
+  @override
+  String get vehDetails => 'Jármű Adatai';
 }

@@ -111,5 +111,6 @@
   "clutch": "Kupplung",
   "controlBelt": "Keilriemen",
   "technicalExam": "Hauptuntersuchung",
-  "unique": "Sonstiges"
+  "unique": "Sonstiges",
+  "vehDetails": "Fahrzeugdetails"
 }

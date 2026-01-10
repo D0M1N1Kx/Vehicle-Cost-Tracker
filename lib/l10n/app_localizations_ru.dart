@@ -314,4 +314,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get unique => 'Прочее';
+
+  @override
+  String get vehDetails => 'Сведения об автомобиле';
 }

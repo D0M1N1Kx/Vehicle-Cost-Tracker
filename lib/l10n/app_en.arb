@@ -99,5 +99,6 @@
     "clutch": "Clutch",
     "controlBelt": "Control Belt",
     "technicalExam": "Technical Exam",
-    "unique": "Unique"
+    "unique": "Unique",
+    "vehDetails": "Vehicle Details"
 }

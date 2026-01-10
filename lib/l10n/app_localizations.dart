@@ -709,6 +709,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unique'**
   String get unique;
+
+  /// No description provided for @vehDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Details'**
+  String get vehDetails;
 }
 
 class _AppLocalizationsDelegate

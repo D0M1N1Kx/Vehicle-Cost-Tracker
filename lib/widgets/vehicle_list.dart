@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/pages/edit_vehicle_page.dart';
+import 'package:vehicle_cost_tracker_app/pages/vehicle_detail_page.dart';
 
 class VehicleList extends StatelessWidget {
   final List<Vehicle> cars;
@@ -29,7 +30,7 @@ class VehicleList extends StatelessWidget {
                 final Vehicle? editedVehicle = await Navigator.push<Vehicle>(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => EditVehiclePage(car: car),
+                    builder: (context) => VehicleDetailPage(vehicle: car),
                   ),
                 );
 

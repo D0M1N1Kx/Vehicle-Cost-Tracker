@@ -311,4 +311,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get unique => 'Ostalo';
+
+  @override
+  String get vehDetails => 'Detalji o vozilu';
 }

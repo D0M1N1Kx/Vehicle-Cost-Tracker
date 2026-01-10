@@ -99,5 +99,6 @@
     "clutch": "Kvačilo",
     "controlBelt": "Remen alternator",
     "technicalExam": "Tehnički pregled",
-    "unique": "Ostalo"
+    "unique": "Ostalo",
+    "vehDetails": "Detalji o vozilu"
 }
