@@ -179,10 +179,15 @@ class _ServiceLogPageState extends State<ServiceLogPage> {
                           itemCount: combinedList.length,
                           itemBuilder: (context, index) {
                             final item = combinedList[index];
+                            final isRefuel = item['type'] == 'refuel';
+                            final titleText = isRefuel
+                                ? '${item['fuelQuantity']} ${context.read<SettingsViewModel>().fuelUnit} × ${item['unitPrice'].toString()} ${context.read<SettingsViewModel>().currency}'
+                                : item['title'];
+
                             return ServiceListTile(
                               icon: item['icon'],
                               color: item['color'],
-                              title: item['title'],
+                              title: titleText,
                               date: DateFormat(
                                 'yyyy-MM-dd',
                               ).format(item['date']),

@@ -49,8 +49,8 @@ class ServiceViewModel extends ChangeNotifier {
         'type': 'refuel',
         'icon': Icons.local_gas_station,
         'color': Colors.green,
-        'title':
-            '${refuel.fuelQuantity}L x ${(refuel.fuelCost / refuel.fuelQuantity).round().toStringAsFixed(2)}\$',
+        'fuelQuantity': refuel.fuelQuantity,
+        'unitPrice': (refuel.fuelCost / refuel.fuelQuantity).round(),
         'date': refuel.date,
         'cost': refuel.fuelCost,
       });
