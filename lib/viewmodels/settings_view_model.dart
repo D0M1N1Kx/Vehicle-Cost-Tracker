@@ -1,42 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_cost_tracker_app/models/settings.dart';
+import 'package:vehicle_cost_tracker_app/services/settings_repository.dart';
 
 class SettingsViewModel extends ChangeNotifier {
-  late Locale _locale;
-  late String _currency;
-  late String _distanceUnit;
-  late String _fuelUnit;
+  late Settings _settings;
+  final SettingsRepository _repository = SettingsRepository();
+  bool _isLoading = true;
 
   SettingsViewModel() {
-    _locale = Locale('en');
-    _currency = '\$';
-    _distanceUnit = 'km';
-    _fuelUnit = "L";
+    _settings = Settings(
+      languageCode: 'en',
+      currency: '\$',
+      distanceUnit: 'km',
+      fuelUnit: 'L',
+    );
   }
 
   // GETTERS
-  Locale get locale => _locale;
-  String get currency => _currency;
-  String get distanceUnit => _distanceUnit;
-  String get fuelUnit => _fuelUnit;
+  Locale get locale => Locale(_settings.languageCode);
+  String get currency => _settings.currency;
+  String get distanceUnit => _settings.distanceUnit;
+  String get fuelUnit => _settings.fuelUnit;
+  bool get isLoading => _isLoading;
 
   // SETTERS
-  void setLocale(String languageCode) {
-    _locale = Locale(languageCode);
+
+  Future<void> loadSettings() async {
+    _isLoading = true;
+    notifyListeners();
+
+    _settings = await _repository.loadSettings();
+
+    _isLoading = false;
     notifyListeners();
   }
 
-  void setCurrency(String newCurrency) {
-    _currency = newCurrency;
+  void setLocale(String languageCode) async {
+    _settings = _settings.copyWith(languageCode: languageCode);
+    await _repository.saveSettings(_settings);
     notifyListeners();
   }
 
-  void setDistanceUnit(String unit) {
-    _distanceUnit = unit;
+  void setCurrency(String newCurrency) async {
+    _settings = _settings.copyWith(currency: newCurrency);
+    await _repository.saveSettings(_settings);
     notifyListeners();
   }
 
-  void setFuelUnit(String unit) {
-    _fuelUnit = unit;
+  void setDistanceUnit(String unit) async {
+    _settings = _settings.copyWith(distanceUnit: unit);
+    await _repository.saveSettings(_settings);
+    notifyListeners();
+  }
+
+  void setFuelUnit(String unit) async {
+    _settings = _settings.copyWith(fuelUnit: unit);
+    await _repository.saveSettings(_settings);
     notifyListeners();
   }
 
