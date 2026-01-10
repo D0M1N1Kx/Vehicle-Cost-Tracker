@@ -259,7 +259,9 @@ class _ReminderCard extends StatelessWidget {
                       style: TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                     Text(
-                      '${AppLocalizations.of(context)!.nextAt}: ${reminder.lastServiceKm + reminder.recommendedIntervalKm} ${context.read<SettingsViewModel>().distanceUnit}',
+                      reminder.lastServiceKm == null
+                          ? '${AppLocalizations.of(context)!.nextAt}: —'
+                          : '${AppLocalizations.of(context)!.nextAt}: ${reminder.lastServiceKm + reminder.recommendedIntervalKm} ${context.read<SettingsViewModel>().distanceUnit}',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,

@@ -3,7 +3,6 @@ import 'package:vehicle_cost_tracker_app/models/service_type.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/models/maintenance_reminder.dart';
 import 'package:vehicle_cost_tracker_app/models/service.dart';
-import 'package:vehicle_cost_tracker_app/models/service.dart';
 
 class MaintenanceReminderViewModel extends ChangeNotifier {
   final Vehicle vehicle;
@@ -37,7 +36,10 @@ class MaintenanceReminderViewModel extends ChangeNotifier {
       final lastService = _getLastServiceOfType(serviceType);
 
       if (lastService != null) {
-        final kmAtService = lastService.kmAtService ?? vehicle.km;
+        // If the km at the time of service isn't recorded, pass null and let
+        // the model handle 'unknown' km so we don't use the current odometer
+        // as a fallback (which masks overdue km-based reminders).
+        final int? kmAtService = lastService.kmAtService;
 
         reminders.add(
           MaintenanceReminder(
@@ -47,7 +49,6 @@ class MaintenanceReminderViewModel extends ChangeNotifier {
             lastServiceKm: kmAtService,
             lastServiceDate: lastService.date,
             currentKm: vehicle.km,
-            currentDate: DateTime.now(),
           ),
         );
       }

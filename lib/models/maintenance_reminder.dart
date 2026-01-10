@@ -2,10 +2,9 @@ class MaintenanceReminder {
   final String serviceType;
   final int recommendedIntervalKm;
   final int recommendedIntervalDays;
-  final int lastServiceKm;
+  final int? lastServiceKm;
   final DateTime lastServiceDate;
   final int currentKm;
-  final DateTime currentDate;
 
   MaintenanceReminder({
     required this.serviceType,
@@ -14,11 +13,14 @@ class MaintenanceReminder {
     required this.lastServiceKm,
     required this.lastServiceDate,
     required this.currentKm,
-    required this.currentDate,
   });
 
   int get kmRemaining {
-    final nextServiceKm = lastServiceKm + recommendedIntervalKm;
+    // If we don't know the km at service time, report the full interval as remaining
+    // so km-based metric doesn't incorrectly show 'no progress'.
+    if (lastServiceKm == null) return recommendedIntervalKm;
+
+    final nextServiceKm = lastServiceKm! + recommendedIntervalKm;
     return (nextServiceKm - currentKm).clamp(0, recommendedIntervalKm);
   }
 
@@ -26,18 +28,24 @@ class MaintenanceReminder {
     final nextServiceDate = lastServiceDate.add(
       Duration(days: recommendedIntervalDays),
     );
-    return nextServiceDate
-        .difference(currentDate)
-        .inDays
-        .clamp(0, recommendedIntervalDays);
+
+    final remainingSeconds = nextServiceDate
+        .difference(DateTime.now())
+        .inSeconds;
+    final remainingDays = (remainingSeconds / 86400).ceil();
+
+    return remainingDays;
   }
 
   int get urgencyPercentage {
-    final kmProgress =
-        ((currentKm - lastServiceKm) / recommendedIntervalKm * 100).toInt();
+    // If km at service isn't known or interval is 0, only use day-based progress.
+    final int kmProgress = (lastServiceKm == null || recommendedIntervalKm == 0)
+        ? 0
+        : ((currentKm - lastServiceKm!) / recommendedIntervalKm * 100).toInt();
+
     final daysProgress =
-        ((currentDate.difference(lastServiceDate).inDays) /
-                recommendedIntervalDays *
+        ((DateTime.now().difference(lastServiceDate).inDays) /
+                (recommendedIntervalDays == 0 ? 1 : recommendedIntervalDays) *
                 100)
             .toInt();
 
