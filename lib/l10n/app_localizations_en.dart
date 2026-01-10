@@ -247,6 +247,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get upcoming => 'Upcoming';
 
   @override
+  String get pending => 'Pending';
+
+  @override
   String get ok => 'OK';
 
   @override

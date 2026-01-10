@@ -578,6 +578,12 @@ abstract class AppLocalizations {
   /// **'Upcoming'**
   String get upcoming;
 
+  /// No description provided for @pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pending;
+
   /// No description provided for @ok.
   ///
   /// In en, this message translates to:

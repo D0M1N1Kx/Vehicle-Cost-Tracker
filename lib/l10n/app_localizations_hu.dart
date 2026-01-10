@@ -252,6 +252,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get upcoming => 'Közelgő';
 
   @override
+  String get pending => 'Függő';
+
+  @override
   String get ok => 'OK';
 
   @override

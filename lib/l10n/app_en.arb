@@ -78,6 +78,7 @@
     "maintenanceSchedule": "Maintenance Schedule",
     "overdue": "Overdue",
     "upcoming": "Upcoming",
+    "pending": "Pending",
     "ok": "OK",
     "last": "Last",
     "remaining": "remaining",

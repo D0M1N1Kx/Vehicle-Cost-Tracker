@@ -247,13 +247,16 @@ class AppLocalizationsSr extends AppLocalizations {
   String get upcoming => 'Predstoji';
 
   @override
+  String get pending => 'Na čekanju';
+
+  @override
   String get ok => 'OK';
 
   @override
-  String get last => 'Poslednja';
+  String get last => 'Poslednji';
 
   @override
-  String get remaining => 'preostaje';
+  String get remaining => 'preostalo';
 
   @override
   String get nextAt => 'Sledeće';
@@ -262,7 +265,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get daysRemaining => 'dana preostaje';
 
   @override
-  String get every => 'Svakih';
+  String get every => 'Svaki';
 
   @override
   String get kmErr => 'Molimo unesite trenutni km';

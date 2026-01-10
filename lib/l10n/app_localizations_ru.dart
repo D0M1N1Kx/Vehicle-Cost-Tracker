@@ -250,6 +250,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get upcoming => 'Предстоящее';
 
   @override
+  String get pending => 'В ожидании';
+
+  @override
   String get ok => 'ОК';
 
   @override

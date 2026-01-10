@@ -80,6 +80,7 @@
     "maintenanceSchedule": "Karbantartási ütemezés",
     "overdue": "Lejárt",
     "upcoming": "Közelgő",
+    "pending": "Függő",
     "ok": "OK",
     "last": "Utolsó",
     "remaining": "maradt",

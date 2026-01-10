@@ -177,6 +177,18 @@ class _ReminderCard extends StatelessWidget {
     }
   }
 
+  String _getStatusText(BuildContext context, String status) {
+    final loc = AppLocalizations.of(context)!;
+    switch (status) {
+      case 'Overdue':
+        return loc.overdue;
+      case 'Upcoming':
+        return loc.upcoming;
+      default:
+        return loc.pending;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final statusColor = _getStatusColor(reminder.status);
@@ -233,7 +245,7 @@ class _ReminderCard extends StatelessWidget {
                       Icon(statusIcon, color: statusColor, size: 24),
                       SizedBox(height: 4),
                       Text(
-                        reminder.status,
+                        _getStatusText(context, reminder.status),
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
