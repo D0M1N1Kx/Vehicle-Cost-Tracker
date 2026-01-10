@@ -124,7 +124,7 @@ class _AddServiceDialogState extends State<_AddServiceDialog> {
             // Cost Input
             CustomInputField(
               label: AppLocalizations.of(context)!.cost,
-              icon: Icons.attach_money,
+              icon: Icons.wallet,
               type: FieldType.number,
               controller: costController,
             ),
