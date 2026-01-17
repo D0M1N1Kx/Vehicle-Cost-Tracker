@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_cost_tracker_app/l10n/app_localizations.dart';
-import 'package:vehicle_cost_tracker_app/l10n/app_localizations_de.dart';
 import 'package:vehicle_cost_tracker_app/models/field_type.dart';
 import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/widgets/custom_input_field.dart';

@@ -4,12 +4,26 @@ import 'package:vehicle_cost_tracker_app/models/vehicle.dart';
 import 'package:vehicle_cost_tracker_app/pages/edit_vehicle_page.dart';
 import 'package:vehicle_cost_tracker_app/pages/refueling_log_page.dart';
 import 'package:vehicle_cost_tracker_app/pages/service_log_page.dart';
+import 'package:vehicle_cost_tracker_app/services/vehicle_repository.dart';
 import 'package:vehicle_cost_tracker_app/widgets/button_card.dart';
 
-class VehicleDetailPage extends StatelessWidget {
+class VehicleDetailPage extends StatefulWidget {
   final Vehicle vehicle;
 
   const VehicleDetailPage({required this.vehicle, super.key});
+
+  @override
+  State<VehicleDetailPage> createState() => _VehicleDetailPageState();
+}
+
+class _VehicleDetailPageState extends State<VehicleDetailPage> {
+  late Vehicle _currentVehicle;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentVehicle = widget.vehicle;
+  }
 
   String _getBrandLogoAsset(String brand) {
     final logoMap = {
@@ -35,7 +49,7 @@ class VehicleDetailPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          '${vehicle.brand} ${vehicle.modell}',
+          '${widget.vehicle.brand} ${widget.vehicle.modell}',
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -49,11 +63,13 @@ class VehicleDetailPage extends StatelessWidget {
               final Vehicle? editedVehicle = await Navigator.push<Vehicle>(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => EditVehiclePage(car: vehicle),
+                  builder: (context) => EditVehiclePage(car: _currentVehicle),
                 ),
               );
               if (editedVehicle != null && context.mounted) {
-                Navigator.pop(context, editedVehicle);
+                setState(() {
+                  _currentVehicle = editedVehicle;
+                });
               }
             },
           ),
@@ -96,7 +112,7 @@ class VehicleDetailPage extends StatelessWidget {
                                 ],
                               ),
                               child: Image.asset(
-                                _getBrandLogoAsset(vehicle.brand),
+                                _getBrandLogoAsset(widget.vehicle.brand),
                                 fit: BoxFit.contain,
                                 errorBuilder: (_, __, ___) => Icon(
                                   Icons.directions_car,
@@ -121,7 +137,7 @@ class VehicleDetailPage extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
-                                    vehicle.brand,
+                                    widget.vehicle.brand,
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 28,
@@ -129,7 +145,7 @@ class VehicleDetailPage extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    vehicle.modell,
+                                    widget.vehicle.modell,
                                     style: TextStyle(
                                       color: Colors.white.withOpacity(0.9),
                                       fontSize: 14,
@@ -156,7 +172,7 @@ class VehicleDetailPage extends StatelessWidget {
                                     label: AppLocalizations.of(
                                       context,
                                     )!.licensePlate.toUpperCase(),
-                                    value: vehicle.licensePlate,
+                                    value: widget.vehicle.licensePlate,
                                     icon: Icons.confirmation_num,
                                   ),
                                 ),
@@ -166,7 +182,7 @@ class VehicleDetailPage extends StatelessWidget {
                                     label: AppLocalizations.of(
                                       context,
                                     )!.year.toUpperCase(),
-                                    value: vehicle.year.toString(),
+                                    value: widget.vehicle.year.toString(),
                                     icon: Icons.calendar_today,
                                   ),
                                 ),
@@ -181,7 +197,7 @@ class VehicleDetailPage extends StatelessWidget {
                                     label: AppLocalizations.of(
                                       context,
                                     )!.kilometers.toUpperCase(),
-                                    value: '${vehicle.km} km',
+                                    value: '${widget.vehicle.km} km',
                                     icon: Icons.speed,
                                   ),
                                 ),
@@ -191,7 +207,7 @@ class VehicleDetailPage extends StatelessWidget {
                                     label: AppLocalizations.of(
                                       context,
                                     )!.color.toUpperCase(),
-                                    value: vehicle.color,
+                                    value: widget.vehicle.color,
                                     icon: Icons.palette,
                                   ),
                                 ),
@@ -203,18 +219,18 @@ class VehicleDetailPage extends StatelessWidget {
                               label: AppLocalizations.of(
                                 context,
                               )!.engineType.toUpperCase(),
-                              value: vehicle.engine ?? 'N/A',
+                              value: widget.vehicle.engine ?? 'N/A',
                               icon: Icons.settings,
                               fullWidth: true,
                             ),
                             const SizedBox(height: 12),
                             // Row 4: Chassis (Full Width)
-                            if (vehicle.chassisNumber != null)
+                            if (widget.vehicle.chassisNumber != null)
                               _DetailItem(
                                 label: AppLocalizations.of(
                                   context,
                                 )!.chassisNumber.toUpperCase(),
-                                value: vehicle.chassisNumber!,
+                                value: widget.vehicle.chassisNumber!,
                                 icon: Icons.security,
                                 fullWidth: true,
                               ),
@@ -228,12 +244,26 @@ class VehicleDetailPage extends StatelessWidget {
               const SizedBox(height: 24),
               // Quick Action Cards
               ButtonCard(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => RefuelingLogPage(car: vehicle),
-                    ),
-                  );
+                onTap: () async {
+                  final Vehicle? updatedVehicle = await Navigator.of(context)
+                      .push<Vehicle>(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              RefuelingLogPage(car: _currentVehicle),
+                        ),
+                      );
+
+                  if (updatedVehicle != null) {
+                    final repo = VehicleRepository();
+                    await repo.load();
+                    await repo.editVehicle(updatedVehicle);
+
+                    if (context.mounted) {
+                      setState(() {
+                        _currentVehicle = updatedVehicle;
+                      });
+                    }
+                  }
                 },
                 icon: Icons.local_gas_station_rounded,
                 iconColor: Colors.green,
@@ -242,12 +272,25 @@ class VehicleDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               ButtonCard(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ServiceLogPage(vehicle: vehicle),
-                    ),
-                  );
+                onTap: () async {
+                  final Vehicle? updatedVehicle = await Navigator.of(context)
+                      .push<Vehicle>(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ServiceLogPage(vehicle: _currentVehicle),
+                        ),
+                      );
+                  if (updatedVehicle != null) {
+                    final repo = VehicleRepository();
+                    await repo.load();
+                    await repo.editVehicle(updatedVehicle);
+
+                    if (context.mounted) {
+                      setState(() {
+                        _currentVehicle = updatedVehicle;
+                      });
+                    }
+                  }
                 },
                 icon: Icons.edit_document,
                 iconColor: Colors.blue,
